@@ -1,0 +1,24 @@
+﻿<Window x:Class="Projekt_PO_KW.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt_PO_KW.Views"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Effect>
+            <DropShadowEffect/>
+        </Grid.Effect>
+        <Rectangle x:Name="GlownyLoginPanel" HorizontalAlignment="Center" Height="313" VerticalAlignment="Center" Width="240" Stroke="#FFF5B4B4" Fill="#FFF5B4B4" RadiusY="10" RadiusX="10"/>
+        <TextBlock x:Name="EtykietaEmail" HorizontalAlignment="Left" Margin="309,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="105" FontWeight="Bold" FontSize="18"><Run Language="pl-pl" Text="Email:"/></TextBlock>
+        <TextBlock x:Name="EtykietaHaslo" HorizontalAlignment="Left" Margin="309,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Height="29" Width="105" FontWeight="Bold" FontSize="18"><Run Language="pl-pl" Text="Hasło:"/></TextBlock>
+        <TextBox x:Name="PoleEmail" HorizontalAlignment="Center" Margin="0,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" BorderBrush="Black" Height="21"/>
+        <PasswordBox x:Name="PoleHaslo" HorizontalAlignment="Center" Margin="0,237,0,0" VerticalAlignment="Top" Width="180" Background="White" BorderBrush="Black" Height="21"/>
+        <Button Content="Zarejestruj się" HorizontalAlignment="Center" Margin="0,336,0,0" VerticalAlignment="Top" Height="28" Width="85" Click="Zarejestruj_sie" Background="#FFF99B9B" BorderBrush="Black" FontWeight="Bold" BorderThickness="2,2,2,2"/>
+        <Button Content="Zaloguj się" HorizontalAlignment="Center" Margin="0,277,0,0" VerticalAlignment="Top" Height="28" Width="84" Click="Zaloguj_sie" Background="#FFF99B9B" BorderBrush="Black" FontWeight="Bold" BorderThickness="2,2,2,2"/>
+        <Label Content="Logowanie" HorizontalAlignment="Center" Height="47" Margin="0,72,0,0" VerticalAlignment="Top" Width="132" FontWeight="Bold" FontSize="22"/>
+        <Label Content="lub" HorizontalAlignment="Center" Height="25" Margin="0,306,0,0" VerticalAlignment="Top" Width="28"/>
+
+    </Grid>
+</Window>
