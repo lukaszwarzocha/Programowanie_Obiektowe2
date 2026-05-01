@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfAppLab2.Views.LoginWindow.xaml"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppLab2"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="450" Width="800">
+    <Grid>
+        <Image x:Name="LogoUR" HorizontalAlignment="Right" Height="100" Margin="0,10,690,0" VerticalAlignment="Top" Width="100" Source="/ur.jpg"/>
+        <Label x:Name="NazwaUR" Content="Uniwersytet Rzeszowski" HorizontalAlignment="Left" Height="55" Margin="127,55,0,0" VerticalAlignment="Top" Width="331" AutomationProperties.IsColumnHeader="True" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="LoginLabel" Content="Login:" HorizontalAlignment="Left" Height="42" Margin="348,156,0,0" VerticalAlignment="Top" Width="72" AutomationProperties.IsColumnHeader="True" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="HasloLabel" Content="Hasło:" HorizontalAlignment="Left" Height="32" Margin="348,249,0,0" VerticalAlignment="Top" Width="72" AutomationProperties.IsColumnHeader="True" FontSize="20" FontWeight="Bold"/>
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="348,286,0,0" VerticalAlignment="Top" Width="176" Height="34"/>
+        <TextBox x:Name="LoginBox" HorizontalAlignment="Left" Height="34" Margin="348,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176"/>
+        <Button Content="Zaloguj" HorizontalAlignment="Left" Margin="348,343,0,0" VerticalAlignment="Top" Width="176" Height="40" Click="Button_Click" Background="#1E5BB8" Foreground="White" FontWeight="Bold"/>
+
+    </Grid>
+</Window>
