@@ -5,6 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_PO_KW"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid/>
+        Title="MainWindow" Height="500" Width="800">
+
+    <Window.Resources>
+        <Style x:Key="NavPrzycisk" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#FF374151"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="NavBorder" Background="{TemplateBinding Background}"
+                                BorderThickness="0,0,0,3" BorderBrush="Transparent">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Margin="15,8"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="NavBorder" Property="BorderBrush" Value="#FFFB7185"/>
+                                <Setter Property="Foreground" Value="#FFFB7185"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#FFFB7185"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FFEFE8E8">
+        <Border Background="White" VerticalAlignment="Top" Height="64">
+            <Grid>
+                <Label Content="Klinika Weterynaryjna" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" Foreground="#FFFB7185" FontSize="18" FontWeight="Bold"/>
+                <Label x:Name="EtykietaUzytkownik" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,110,0" FontWeight="Bold"/>
+                <Button Content="Wyloguj" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" Background="#FFFB7185" Foreground="White" BorderThickness="0" Padding="10,5"/>
+            </Grid>
+        </Border>
+
+        <Border Margin="0,64,0,376" Background="White" BorderThickness="0,1,0,0">
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" Margin="20,0,0,0">
+                    <Button Content="Moje konto" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" FontWeight="Bold" BorderBrush="White" Style="{StaticResource NavPrzycisk}"/>
+                    <Button Content="Moje pupile" Margin="0,0,10,0" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" BorderBrush="White" FontWeight="Bold" Style="{StaticResource NavPrzycisk}"/>
+                    <Button Content="Moje wizyty" Margin="0,0,10,0" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" BorderBrush="White" FontWeight="Bold" Style="{StaticResource NavPrzycisk}"/>
+                    <Button Content="Dodaj pupila" Margin="0,0,10,0" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" BorderBrush="White" FontWeight="Bold" Style="{StaticResource NavPrzycisk}" Height="41"/>
+                    <Button Content="Zarezerwuj wizytę" Margin="0,0,10,0" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" BorderBrush="White" FontWeight="Bold" Style="{StaticResource NavPrzycisk}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
 </Window>

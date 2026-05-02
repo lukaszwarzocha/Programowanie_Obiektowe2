@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekt_PO_KW.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -9,6 +10,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Projekt_PO_KW.Repositories;
+using System.Diagnostics.Eventing.Reader;
 
 namespace Projekt_PO_KW.Views
 {
@@ -27,16 +30,40 @@ namespace Projekt_PO_KW.Views
             var email = PoleEmail.Text;
             var haslo = PoleHaslo.Password;
 
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(haslo) ) {
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(haslo))
+            {
                 System.Windows.MessageBox.Show("Nieprawidłowy email lub hasło!");
                 return;
             }
 
+            try
+            {
+                var rep = new UzytkownikRep();
+                var uzytkownik = rep.GetUser(email, haslo);
+
+                if (uzytkownik == null)
+                {
+                    System.Windows.MessageBox.Show("Nieprawidłowy login lub hasło!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                if (uzytkownik.Rola == "Administrator")
+                    new AdminWindow().Show();
+                else
+                    new MainWindow().Show();
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Nie udało ci się połączyć z bazą danych: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Zarejestruj_sie(object sender, RoutedEventArgs e)
         {
-
+            new RegisterWindow().Show();
+            this.Close();
         }
     }
 }
