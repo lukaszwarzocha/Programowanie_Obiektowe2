@@ -32,7 +32,7 @@ namespace Projekt_PO_KW.Views
 
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(haslo))
             {
-                System.Windows.MessageBox.Show("Nieprawidłowy email lub hasło!");
+                System.Windows.MessageBox.Show("Nieprawidłowy email lub hasło!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 

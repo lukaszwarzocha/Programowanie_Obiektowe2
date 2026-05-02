@@ -55,7 +55,7 @@
                     <Button Content="Moje konto" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" FontWeight="Bold" BorderBrush="White" Style="{StaticResource NavPrzycisk}"/>
                     <Button Content="Moje pupile" Margin="0,0,10,0" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" BorderBrush="White" FontWeight="Bold" Style="{StaticResource NavPrzycisk}"/>
                     <Button Content="Moje wizyty" Margin="0,0,10,0" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" BorderBrush="White" FontWeight="Bold" Style="{StaticResource NavPrzycisk}"/>
-                    <Button Content="Dodaj pupila" Margin="0,0,10,0" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" BorderBrush="White" FontWeight="Bold" Style="{StaticResource NavPrzycisk}" Height="41"/>
+                    <Button Content="Dodaj pupila" Margin="0,0,10,0" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" BorderBrush="White" FontWeight="Bold" Style="{StaticResource NavPrzycisk}"/>
                     <Button Content="Zarezerwuj wizytę" Margin="0,0,10,0" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" BorderBrush="White" FontWeight="Bold" Style="{StaticResource NavPrzycisk}"/>
                 </StackPanel>
             </Grid>
