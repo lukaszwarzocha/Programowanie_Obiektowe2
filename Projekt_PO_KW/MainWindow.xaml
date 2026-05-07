@@ -40,25 +40,162 @@
     </Window.Resources>
 
     <Grid Background="#FFEFE8E8">
-        <Border Background="White" VerticalAlignment="Top" Height="64">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64"/>
+            <RowDefinition Height="57"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="White">
             <Grid>
-                <Label Content="Klinika Weterynaryjna" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" Foreground="#FFFB7185" FontSize="18" FontWeight="Bold"/>
-                <Label x:Name="EtykietaUzytkownik" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,110,0" FontWeight="Bold"/>
-                <Button Content="Wyloguj" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" Background="#FFFB7185" Foreground="White" BorderThickness="0" Padding="10,5"/>
+                <Label Content="Klinika Weterynaryjna" HorizontalAlignment="Left" 
+                   VerticalAlignment="Center" Margin="20,0,0,0" 
+                   Foreground="#FFFB7185" FontSize="18" FontWeight="Bold"/>
+                <Label x:Name="EtykietaUzytkownik" Content="" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" 
+                   Margin="0,0,130,0" FontWeight="Bold"/>
+                <Button Content="Wyloguj" HorizontalAlignment="Right" 
+                    VerticalAlignment="Center" Margin="0,0,20,0" 
+                    Background="#FFFB7185" Foreground="White" 
+                    BorderThickness="0" Padding="10,5" Click="Wyloguj"/>
             </Grid>
         </Border>
 
-        <Border Margin="0,64,0,376" Background="White" BorderThickness="0,1,0,0">
-            <Grid>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" 
-                    VerticalAlignment="Center" Margin="20,0,0,0">
-                    <Button Content="Moje konto" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" FontWeight="Bold" BorderBrush="White" Style="{StaticResource NavPrzycisk}"/>
-                    <Button Content="Moje pupile" Margin="0,0,10,0" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" BorderBrush="White" FontWeight="Bold" Style="{StaticResource NavPrzycisk}"/>
-                    <Button Content="Moje wizyty" Margin="0,0,10,0" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" BorderBrush="White" FontWeight="Bold" Style="{StaticResource NavPrzycisk}"/>
-                    <Button Content="Dodaj pupila" Margin="0,0,10,0" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" BorderBrush="White" FontWeight="Bold" Style="{StaticResource NavPrzycisk}"/>
-                    <Button Content="Zarezerwuj wizytę" Margin="0,0,10,0" Padding="15,8" Background="White" Foreground="#FF374151" BorderThickness="0" BorderBrush="White" FontWeight="Bold" Style="{StaticResource NavPrzycisk}"/>
-                </StackPanel>
-            </Grid>
+        <Border Grid.Row="1" Background="White" BorderThickness="0,1,0,1" 
+            BorderBrush="#FFE5E7EB">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" Margin="10,0,0,0">
+                <Button Content="Moje konto"         Style="{StaticResource NavPrzycisk}"/>
+                <Button Content="Moje pupile"        Style="{StaticResource NavPrzycisk}"/>
+                <Button Content="Moje wizyty"        Style="{StaticResource NavPrzycisk}"/>
+                <Button Content="Dodaj pupila"       Style="{StaticResource NavPrzycisk}"/>
+                <Button Content="Zarezerwuj wizytę"  Style="{StaticResource NavPrzycisk}"/>
+            </StackPanel>
         </Border>
+
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="30,20,30,20">
+
+                <TextBlock Text="Moje konto" FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
+                <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="8"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="8"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="8"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Imię" FontWeight="Bold" 
+                           VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="0" Grid.Column="1" CornerRadius="8" BorderBrush="#FFE5E7EB" 
+                        BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                        <TextBox x:Name="TwojeImie" BorderThickness="0" Background="Transparent" Padding="8,4"/>
+                    </Border>
+
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="Nazwisko" FontWeight="Bold" 
+                           VerticalAlignment="Center" Margin="15,0,10,0"/>
+                    <Border Grid.Row="0" Grid.Column="3" CornerRadius="8" BorderBrush="#FFE5E7EB" 
+                        BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                        <TextBox x:Name="TwojeNazwisko" BorderThickness="0" Background="Transparent" Padding="8,4"/>
+                    </Border>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Email" FontWeight="Bold" 
+                           VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="2" Grid.Column="1" CornerRadius="8" BorderBrush="#FFE5E7EB" 
+                        BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                        <TextBox x:Name="TwojEmail" BorderThickness="0" Background="Transparent" Padding="8,4"/>
+                    </Border>
+
+                    <TextBlock Grid.Row="2" Grid.Column="2" Text="Telefon" FontWeight="Bold" 
+                           VerticalAlignment="Center" Margin="15,0,10,0"/>
+                    <Border Grid.Row="2" Grid.Column="3" CornerRadius="8" BorderBrush="#FFE5E7EB" 
+                        BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                        <TextBox x:Name="TwojTelefon" BorderThickness="0" Background="Transparent" Padding="8,4"/>
+                    </Border>
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Adres" FontWeight="Bold" 
+                           VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" CornerRadius="8" 
+                        BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                        <TextBox x:Name="TwojAdres" BorderThickness="0" Background="Transparent" Padding="8,4"/>
+                    </Border>
+
+                    <Button Grid.Row="4" Grid.Column="4" Content="Zmień dane" 
+                        Margin="15,0,0,0" Height="30" Width="110"
+                        Click="Zmiana_danych" Background="#FFFB7185" Foreground="White" 
+                        BorderThickness="0" FontWeight="Bold">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius="8" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+
+                <TextBlock Text="Zmień hasło" FontWeight="Bold" FontSize="14" Margin="0,20,0,10" Width="738"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="8"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Obecne hasło" FontWeight="Bold" 
+                           VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="0" Grid.Column="1" CornerRadius="8" BorderBrush="#FFE5E7EB" 
+                        BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                        <PasswordBox x:Name="AktualneHaslo" BorderThickness="0" Background="Transparent" Padding="8,4"/>
+                    </Border>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Nowe hasło" FontWeight="Bold" 
+                           VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="2" Grid.Column="1" CornerRadius="8" BorderBrush="#FFE5E7EB" 
+                        BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                        <PasswordBox x:Name="NoweHaslo" BorderThickness="0" Background="Transparent" Padding="8,4"/>
+                    </Border>
+
+                    <TextBlock Grid.Row="2" Grid.Column="2" Text="Potwierdź hasło" FontWeight="Bold" 
+                           VerticalAlignment="Center" Margin="15,0,10,0"/>
+                    <Border Grid.Row="2" Grid.Column="3" CornerRadius="8" BorderBrush="#FFE5E7EB" 
+                        BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                        <PasswordBox x:Name="PowtorzHaslo" BorderThickness="0" Background="Transparent" Padding="8,4"/>
+                    </Border>
+
+                    <Button Grid.Row="2" Grid.Column="4" Content="Zmień hasło" 
+                        Margin="15,0,0,0" Height="30" Width="110"
+                        Click="Zmiana_hasla" Background="#FFFB7185" Foreground="White" 
+                        BorderThickness="0" FontWeight="Bold">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius="8" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+
+            </StackPanel>
+        </ScrollViewer>
+
     </Grid>
 </Window>

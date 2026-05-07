@@ -12,28 +12,28 @@
         </Grid.Effect>
         <Rectangle x:Name="GlownyPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Height="378" Width="470" Margin="0,51,0,0" Fill="White" Stroke="White" RadiusX="10" RadiusY="10"/>
         <Label Content="Rejestracja" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="199,60,0,0" Width="194" Height="42" FontWeight="Bold" FontSize="22"/>
-        <TextBlock x:Name="EtykietaImie" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="205,110,0,0" Width="105" Height="23" FontWeight="Bold" Text="Imię"/>
+        <TextBlock x:Name="EtykietaImie" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="205,110,0,0" Width="36" Height="23" FontWeight="Bold" Text="Imię"/>
         <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="205,136,0,0" Width="180" Height="26">
             <TextBox x:Name="PoleImie" BorderThickness="0" Background="Transparent" Padding="8,3" VerticalContentAlignment="Center"/>
         </Border>
 
-        <TextBlock x:Name="EtykietaNazwisko" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="424,110,0,0" Width="105" Height="23" FontWeight="Bold" Text="Nazwisko"/>
+        <TextBlock x:Name="EtykietaNazwisko" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="424,110,0,0" Width="52" Height="23" FontWeight="Bold" Text="Nazwisko"/>
         <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="424,136,0,0" Width="180" Height="26">
             <TextBox x:Name="PoleNazwisko" BorderThickness="0" Background="Transparent" Padding="8,3" VerticalContentAlignment="Center"/>
         </Border>
 
 
-        <TextBlock x:Name="EtykietaEmail" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="205,178,0,0" Width="105" Height="23" FontWeight="Bold" Text="Email"/>
+        <TextBlock x:Name="EtykietaEmail" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="205,178,0,0" Width="36" Height="23" FontWeight="Bold" Text="Email"/>
         <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="205,201,0,0" Width="180" Height="26">
             <TextBox x:Name="PoleEmail" BorderThickness="0" Background="Transparent" Padding="8,3" VerticalContentAlignment="Center"/>
         </Border>
 
-        <TextBlock x:Name="EtykietaTelefon" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="424,178,0,0" Width="105" Height="23" FontWeight="Bold" Text="Telefon"/>
+        <TextBlock x:Name="EtykietaTelefon" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="424,178,0,0" Width="45" Height="23" FontWeight="Bold" Text="Telefon"/>
         <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="424,201,0,0" Width="180" Height="26">
             <TextBox x:Name="PoleTelefon" BorderThickness="0" Background="Transparent" Padding="8,3" VerticalContentAlignment="Center"/>
         </Border>
 
-        <TextBlock x:Name="EtykietaAdres" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="205,240,0,0" Width="399" Height="23">
+        <TextBlock x:Name="EtykietaAdres" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="205,240,0,0" Width="105" Height="23">
         <Run Text="Adres " FontWeight="Bold"/>
         <Run Text="(opcjonalne)" Foreground="#FF9CA3AF" FontWeight="Normal" FontSize="12"/>
         </TextBlock>
@@ -42,12 +42,12 @@
             <TextBox x:Name="PoleAdres" BorderThickness="0" Background="Transparent" Padding="8,3" VerticalContentAlignment="Center"/>
         </Border>
 
-        <TextBlock x:Name="EtykietaHaslo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="205,311,0,0" Width="105" Height="22" FontWeight="Bold" Text="Hasło"/>
+        <TextBlock x:Name="EtykietaHaslo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="205,311,0,0" Width="36" Height="22" FontWeight="Bold" Text="Hasło"/>
         <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="205,338,0,0" Width="180" Height="26">
             <PasswordBox x:Name="PoleHaslo" BorderThickness="0" Background="Transparent" Padding="8,3" VerticalContentAlignment="Center"/>
         </Border>
 
-        <TextBlock x:Name="EtykietaPotwierdzHaslo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="424,311,0,0" Width="146" Height="22" FontWeight="Bold" Text="Potwierdź hasło"/>
+        <TextBlock x:Name="EtykietaPotwierdzHaslo" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="424,311,0,0" Width="90" Height="22" FontWeight="Bold" Text="Potwierdź hasło"/>
         <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="424,338,0,0" Width="180" Height="26">
             <PasswordBox x:Name="PolePotwierdzHaslo" BorderThickness="0" Background="Transparent" Padding="8,3" VerticalContentAlignment="Center"/>
         </Border>

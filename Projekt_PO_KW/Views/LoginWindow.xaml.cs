@@ -50,6 +50,7 @@ namespace Projekt_PO_KW.Views
                 if (uzytkownik.Rola == "Administrator")
                     new AdminWindow().Show();
                 else
+                    Helpers.SessionHelper.ZalogowanyUzytkownik = uzytkownik;
                     new MainWindow().Show();
 
                 this.Close();
