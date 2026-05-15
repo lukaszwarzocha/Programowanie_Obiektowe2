@@ -65,7 +65,7 @@ namespace Projekt_PO_KW.Repositories
             return (int)command.ExecuteScalar() > 0;
         }
 
-        public void Zmiana_danych(Uzytkownik user) 
+        public void Zmiana_danych(Uzytkownik user)
         {
             using var Conn = Database.GetConnection();
             Conn.Open();

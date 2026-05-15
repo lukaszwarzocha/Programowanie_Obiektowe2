@@ -10,19 +10,25 @@
         <Grid.Effect>
             <DropShadowEffect/>
         </Grid.Effect>
-        <Rectangle x:Name="GlownyLoginPanel" HorizontalAlignment="Center" Height="334" VerticalAlignment="Top" Width="240" Stroke="White" Fill="White" RadiusY="10" RadiusX="10" Margin="0,68,0,0"/>
-        <TextBlock x:Name="EtykietaEmail" HorizontalAlignment="Left" Margin="309,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="105" FontWeight="Bold" FontSize="14"><Run Language="pl-pl" Text="Email:"/></TextBlock>
-        <TextBlock x:Name="EtykietaHaslo" HorizontalAlignment="Left" Margin="310,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="105" FontWeight="Bold" FontSize="14"><Run Language="pl-pl" Text="Hasło:"/></TextBlock>
+        <Rectangle x:Name="GlownyLoginPanel" HorizontalAlignment="Center" Height="334" VerticalAlignment="Top" 
+                   Width="240" Stroke="White" Fill="White" RadiusY="10" RadiusX="10" Margin="0,68,0,0"/>
+        <TextBlock x:Name="EtykietaEmail" HorizontalAlignment="Left" Margin="309,138,0,0" TextWrapping="Wrap" 
+                   VerticalAlignment="Top" Height="29" Width="105" FontWeight="Bold" FontSize="14"><Run Language="pl-pl" Text="Email:"/></TextBlock>
+        <TextBlock x:Name="EtykietaHaslo" HorizontalAlignment="Left" Margin="310,208,0,0" TextWrapping="Wrap" 
+                   VerticalAlignment="Top" Height="29" Width="105" FontWeight="Bold" FontSize="14"><Run Language="pl-pl" Text="Hasło:"/></TextBlock>
 
-        <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" HorizontalAlignment="Center" Margin="0,167,0,0" VerticalAlignment="Top" Width="180" Height="26">
+        <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" 
+                HorizontalAlignment="Center" Margin="0,167,0,0" VerticalAlignment="Top" Width="180" Height="26">
             <TextBox x:Name="PoleEmail" BorderThickness="0" Background="Transparent" Padding="8,3" VerticalContentAlignment="Center"/>
         </Border>
 
-        <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" HorizontalAlignment="Center" Margin="0,237,0,0" VerticalAlignment="Top" Width="180" Height="26">
+        <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" 
+                HorizontalAlignment="Center" Margin="0,237,0,0" VerticalAlignment="Top" Width="180" Height="26">
             <PasswordBox x:Name="PoleHaslo" BorderThickness="0" Background="Transparent" Padding="8,3" VerticalContentAlignment="Center"/>
         </Border>
 
-        <Button Content="Zaloguj się" HorizontalAlignment="Center" Margin="0,277,0,0" VerticalAlignment="Top" Height="28" Width="180" Click="Zaloguj_sie" Background="#FFFB7185" BorderBrush="#FFFB7185" 
+        <Button Content="Zaloguj się" HorizontalAlignment="Center" Margin="0,277,0,0" 
+                VerticalAlignment="Top" Height="28" Width="180" Click="Zaloguj_sie" Background="#FFFB7185" BorderBrush="#FFFB7185" 
                 FontWeight="Bold" BorderThickness="0" Foreground="White">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
@@ -32,10 +38,9 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-
-        <Button Content="Zarejestruj się" HorizontalAlignment="Center" Margin="0,336,0,0" VerticalAlignment="Top" Height="28" Width="84" Click="Zarejestruj_sie" Background="White" BorderBrush="White" FontWeight="Bold" BorderThickness="2,2,2,2" Foreground="#FFFB7185"/>
+        <Button Content="Zarejestruj się" HorizontalAlignment="Center" Margin="0,336,0,0" VerticalAlignment="Top" Height="28" Width="84" Click="Zarejestruj_sie" 
+                Background="White" BorderBrush="White" FontWeight="Bold" BorderThickness="2,2,2,2" Foreground="#FFFB7185"/>
         <Label Content="Logowanie" HorizontalAlignment="Center" Height="33" Margin="0,80,0,0" VerticalAlignment="Top" Width="112" FontWeight="Bold" FontSize="18"/>
         <Label Content="lub" HorizontalAlignment="Center" Height="25" Margin="0,311,0,0" VerticalAlignment="Top" Width="28" Foreground="#FF9CA3AF"/>
-
     </Grid>
 </Window>

@@ -8,7 +8,7 @@ namespace Projekt_PO_KW.Models
     {
         public int IdGodziny { get; set; }
         public int IdWeterynarz { get; set; }
-        public int DzienTygodnia { get; set; } 
+        public int DzienTygodnia { get; set; }
         public TimeSpan GodzStart { get; set; }
         public TimeSpan GodzKoniec { get; set; }
         public string NazwaDnia => DzienTygodnia switch

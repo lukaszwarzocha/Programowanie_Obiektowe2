@@ -145,5 +145,112 @@ namespace Projekt_PO_KW
             new LoginWindow().Show();
             this.Close();
         }
+
+        private void Nav_Click(object sender, RoutedEventArgs e)
+        {
+            PanelMojeKonto.Visibility = Visibility.Collapsed;
+            PanelMojePupile.Visibility = Visibility.Collapsed;
+            PanelMojeWizyty.Visibility = Visibility.Collapsed;
+
+            BtnMojeKonto.Tag = null;
+            BtnMojePupile.Tag = null;
+            BtnMojeWizyty.Tag = null;
+
+            var przycisk = sender as System.Windows.Controls.Button;
+            przycisk!.Tag = "active";
+
+            if (przycisk == BtnMojeKonto)
+                PanelMojeKonto.Visibility = Visibility.Visible;
+            else if (przycisk == BtnMojePupile)
+            {
+                PanelMojePupile.Visibility = Visibility.Visible;
+                WczytajPupile();
+            }
+            else if (przycisk == BtnMojeWizyty)
+            {
+                PanelMojeWizyty.Visibility = Visibility.Visible;
+                WczytajWizyty();
+            }
+        }
+
+        private void WczytajPupile()
+        {
+            try
+            {
+                var rep = new Repositories.PupilRep();
+                var pupile = rep.GetByUzytkownik(Helpers.SessionHelper.ZalogowanyUzytkownik!.IdUzytkownik);
+                ListaPupili.ItemsSource = pupile;
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Błąd podczas wczytywania twoich pupili: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void UsunPupila_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as System.Windows.Controls.Button;
+            var idPupil = (int)button!.Tag;
+
+            var potwierdzenie = System.Windows.MessageBox.Show("Czy na pewno chcesz usunąć tego pupila?", "Potwierdzenie", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (potwierdzenie == MessageBoxResult.No) return;
+
+            try
+            {
+                var rep = new Repositories.PupilRep();
+                rep.Usun(idPupil);
+                WczytajPupile();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Błąd podczas usuwania pupila: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void EdytujPupila_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as System.Windows.Controls.Button;
+            var idPupil = (int)button!.Tag;
+
+            var input = Helpers.DialogHelper.Show("Edytuj wiek pupila", "Podaj nowy wiek:");
+            if (input == null) return;
+
+            if (!int.TryParse(input, out int nowyWiek) || nowyWiek < 0 || nowyWiek > 30)
+            {
+                System.Windows.MessageBox.Show("Podaj prawidłowy wiek!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            try
+            {
+                var rep = new Repositories.PupilRep();
+                rep.ZmienWiek(idPupil, nowyWiek);
+                WczytajPupile();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Błąd podczas zmiany wieku pupila: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void WczytajWizyty()
+        {
+            var rep = new Repositories.RezerwacjaRep();
+            var wizyty = rep.GetByUzytkownik(Helpers.SessionHelper.ZalogowanyUzytkownik!.IdUzytkownik);
+            ListaWizyt.ItemsSource = wizyty;
+        }
+
+        private void DodajPupila_Click(object sender, RoutedEventArgs e)
+        {
+            new Views.DodajPupilaWindow().ShowDialog();
+            if (PanelMojePupile.Visibility == Visibility.Visible)
+                WczytajPupile();
+        }
+
+        private void ZarezerwujWizyte_Click(object sender, RoutedEventArgs e)
+        {
+            new Views.RezerwacjaWindow().ShowDialog();
+        }
+
     }
 }

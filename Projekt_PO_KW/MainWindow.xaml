@@ -25,10 +25,10 @@
                                               Margin="15,8"/>
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsPressed" Value="True">
+                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="active">
                                 <Setter TargetName="NavBorder" Property="BorderBrush" Value="#FFFB7185"/>
                                 <Setter Property="Foreground" Value="#FFFB7185"/>
-                            </Trigger>
+                            </DataTrigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Foreground" Value="#FFFB7185"/>
                             </Trigger>
@@ -48,35 +48,33 @@
 
         <Border Grid.Row="0" Background="White">
             <Grid>
-                <Label Content="Klinika Weterynaryjna" HorizontalAlignment="Left" 
-                   VerticalAlignment="Center" Margin="20,0,0,0" 
-                   Foreground="#FFFB7185" FontSize="18" FontWeight="Bold"/>
-                <Label x:Name="EtykietaUzytkownik" Content="" 
-                   HorizontalAlignment="Right" VerticalAlignment="Center" 
-                   Margin="0,0,130,0" FontWeight="Bold"/>
-                <Button Content="Wyloguj" HorizontalAlignment="Right" 
-                    VerticalAlignment="Center" Margin="0,0,20,0" 
-                    Background="#FFFB7185" Foreground="White" 
-                    BorderThickness="0" Padding="10,5" Click="Wyloguj"/>
+                <Label Content="Klinika Weterynaryjna" HorizontalAlignment="Left"
+                       VerticalAlignment="Center" Margin="20,0,0,0"
+                       Foreground="#FFFB7185" FontSize="18" FontWeight="Bold"/>
+                <Label x:Name="EtykietaUzytkownik" Content=""
+                       HorizontalAlignment="Right" VerticalAlignment="Center"
+                       Margin="0,0,130,0" FontWeight="Bold"/>
+                <Button Content="Wyloguj" HorizontalAlignment="Right"
+                        VerticalAlignment="Center" Margin="0,0,20,0"
+                        Background="#FFFB7185" Foreground="White"
+                        BorderThickness="0" Padding="10,5" Click="Wyloguj"/>
             </Grid>
         </Border>
 
-        <Border Grid.Row="1" Background="White" BorderThickness="0,1,0,1" 
-            BorderBrush="#FFE5E7EB">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" 
-                    VerticalAlignment="Center" Margin="10,0,0,0">
-                <Button Content="Moje konto"         Style="{StaticResource NavPrzycisk}"/>
-                <Button Content="Moje pupile"        Style="{StaticResource NavPrzycisk}"/>
-                <Button Content="Moje wizyty"        Style="{StaticResource NavPrzycisk}"/>
-                <Button Content="Dodaj pupila"       Style="{StaticResource NavPrzycisk}"/>
-                <Button Content="Zarezerwuj wizytę"  Style="{StaticResource NavPrzycisk}"/>
+        <Border Grid.Row="1" Background="White" BorderThickness="0,1,0,1" BorderBrush="#FFE5E7EB">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0">
+                <Button x:Name="BtnMojeKonto" Content="Moje konto" Tag="active" Style="{StaticResource NavPrzycisk}" Click="Nav_Click"/>
+                <Button x:Name="BtnMojePupile" Content="Moje pupile" Style="{StaticResource NavPrzycisk}" Click="Nav_Click"/>
+                <Button x:Name="BtnMojeWizyty" Content="Moje wizyty" Style="{StaticResource NavPrzycisk}" Click="Nav_Click"/>
+                <Button Content="Dodaj pupila" Style="{StaticResource NavPrzycisk}" Click="DodajPupila_Click"/>
+                <Button Content="Zarezerwuj wizytę" Style="{StaticResource NavPrzycisk}" Click="ZarezerwujWizyte_Click"/>
             </StackPanel>
         </Border>
 
-        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+        <ScrollViewer x:Name="PanelMojeKonto" Grid.Row="2" VerticalScrollBarVisibility="Auto" Visibility="Visible">
             <StackPanel Margin="30,20,30,20">
 
-                <TextBlock Text="Moje konto" FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
+                <TextBlock Text="Twoje dane" FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
                 <Grid Margin="0,0,0,10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -91,49 +89,47 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="8"/>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="8"/>
-                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Imię" FontWeight="Bold" 
-                           VerticalAlignment="Center" Margin="0,0,10,0"/>
-                    <Border Grid.Row="0" Grid.Column="1" CornerRadius="8" BorderBrush="#FFE5E7EB" 
-                        BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Imię" FontWeight="Bold"
+                               VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="0" Grid.Column="1" CornerRadius="8" BorderBrush="#FFE5E7EB"
+                            BorderThickness="1" Background="#FFF9FAFB" Height="30">
                         <TextBox x:Name="TwojeImie" BorderThickness="0" Background="Transparent" Padding="8,4"/>
                     </Border>
 
-                    <TextBlock Grid.Row="0" Grid.Column="2" Text="Nazwisko" FontWeight="Bold" 
-                           VerticalAlignment="Center" Margin="15,0,10,0"/>
-                    <Border Grid.Row="0" Grid.Column="3" CornerRadius="8" BorderBrush="#FFE5E7EB" 
-                        BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="Nazwisko" FontWeight="Bold"
+                               VerticalAlignment="Center" Margin="15,0,10,0"/>
+                    <Border Grid.Row="0" Grid.Column="3" CornerRadius="8" BorderBrush="#FFE5E7EB"
+                            BorderThickness="1" Background="#FFF9FAFB" Height="30">
                         <TextBox x:Name="TwojeNazwisko" BorderThickness="0" Background="Transparent" Padding="8,4"/>
                     </Border>
 
-                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Email" FontWeight="Bold" 
-                           VerticalAlignment="Center" Margin="0,0,10,0"/>
-                    <Border Grid.Row="2" Grid.Column="1" CornerRadius="8" BorderBrush="#FFE5E7EB" 
-                        BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Email" FontWeight="Bold"
+                               VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="2" Grid.Column="1" CornerRadius="8" BorderBrush="#FFE5E7EB"
+                            BorderThickness="1" Background="#FFF9FAFB" Height="30">
                         <TextBox x:Name="TwojEmail" BorderThickness="0" Background="Transparent" Padding="8,4"/>
                     </Border>
 
-                    <TextBlock Grid.Row="2" Grid.Column="2" Text="Telefon" FontWeight="Bold" 
-                           VerticalAlignment="Center" Margin="15,0,10,0"/>
-                    <Border Grid.Row="2" Grid.Column="3" CornerRadius="8" BorderBrush="#FFE5E7EB" 
-                        BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                    <TextBlock Grid.Row="2" Grid.Column="2" Text="Telefon" FontWeight="Bold"
+                               VerticalAlignment="Center" Margin="15,0,10,0"/>
+                    <Border Grid.Row="2" Grid.Column="3" CornerRadius="8" BorderBrush="#FFE5E7EB"
+                            BorderThickness="1" Background="#FFF9FAFB" Height="30">
                         <TextBox x:Name="TwojTelefon" BorderThickness="0" Background="Transparent" Padding="8,4"/>
                     </Border>
 
-                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Adres" FontWeight="Bold" 
-                           VerticalAlignment="Center" Margin="0,0,10,0"/>
-                    <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" CornerRadius="8" 
-                        BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Adres" FontWeight="Bold"
+                               VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" CornerRadius="8"
+                            BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" Height="30">
                         <TextBox x:Name="TwojAdres" BorderThickness="0" Background="Transparent" Padding="8,4"/>
                     </Border>
 
-                    <Button Grid.Row="4" Grid.Column="4" Content="Zmień dane" 
-                        Margin="15,0,0,0" Height="30" Width="110"
-                        Click="Zmiana_danych" Background="#FFFB7185" Foreground="White" 
-                        BorderThickness="0" FontWeight="Bold">
+                    <Button Grid.Row="4" Grid.Column="4" Content="Zmień dane"
+                            Margin="15,0,0,0" Height="30" Width="110"
+                            Click="Zmiana_danych" Background="#FFFB7185" Foreground="White"
+                            BorderThickness="0" FontWeight="Bold">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border CornerRadius="8" Background="{TemplateBinding Background}">
@@ -144,7 +140,7 @@
                     </Button>
                 </Grid>
 
-                <TextBlock Text="Zmień hasło" FontWeight="Bold" FontSize="14" Margin="0,20,0,10" Width="738"/>
+                <TextBlock Text="Zmień hasło" FontWeight="Bold" FontSize="14" Margin="0,20,0,10"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -159,31 +155,31 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Obecne hasło" FontWeight="Bold" 
-                           VerticalAlignment="Center" Margin="0,0,10,0"/>
-                    <Border Grid.Row="0" Grid.Column="1" CornerRadius="8" BorderBrush="#FFE5E7EB" 
-                        BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Obecne hasło" FontWeight="Bold"
+                               VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="0" Grid.Column="1" CornerRadius="8" BorderBrush="#FFE5E7EB"
+                            BorderThickness="1" Background="#FFF9FAFB" Height="30">
                         <PasswordBox x:Name="AktualneHaslo" BorderThickness="0" Background="Transparent" Padding="8,4"/>
                     </Border>
 
-                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Nowe hasło" FontWeight="Bold" 
-                           VerticalAlignment="Center" Margin="0,0,10,0"/>
-                    <Border Grid.Row="2" Grid.Column="1" CornerRadius="8" BorderBrush="#FFE5E7EB" 
-                        BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Nowe hasło" FontWeight="Bold"
+                               VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <Border Grid.Row="2" Grid.Column="1" CornerRadius="8" BorderBrush="#FFE5E7EB"
+                            BorderThickness="1" Background="#FFF9FAFB" Height="30">
                         <PasswordBox x:Name="NoweHaslo" BorderThickness="0" Background="Transparent" Padding="8,4"/>
                     </Border>
 
-                    <TextBlock Grid.Row="2" Grid.Column="2" Text="Potwierdź hasło" FontWeight="Bold" 
-                           VerticalAlignment="Center" Margin="15,0,10,0"/>
-                    <Border Grid.Row="2" Grid.Column="3" CornerRadius="8" BorderBrush="#FFE5E7EB" 
-                        BorderThickness="1" Background="#FFF9FAFB" Height="30">
+                    <TextBlock Grid.Row="2" Grid.Column="2" Text="Potwierdź hasło" FontWeight="Bold"
+                               VerticalAlignment="Center" Margin="15,0,10,0"/>
+                    <Border Grid.Row="2" Grid.Column="3" CornerRadius="8" BorderBrush="#FFE5E7EB"
+                            BorderThickness="1" Background="#FFF9FAFB" Height="30">
                         <PasswordBox x:Name="PowtorzHaslo" BorderThickness="0" Background="Transparent" Padding="8,4"/>
                     </Border>
 
-                    <Button Grid.Row="2" Grid.Column="4" Content="Zmień hasło" 
-                        Margin="15,0,0,0" Height="30" Width="110"
-                        Click="Zmiana_hasla" Background="#FFFB7185" Foreground="White" 
-                        BorderThickness="0" FontWeight="Bold">
+                    <Button Grid.Row="2" Grid.Column="4" Content="Zmień hasło"
+                            Margin="15,0,0,0" Height="30" Width="110"
+                            Click="Zmiana_hasla" Background="#FFFB7185" Foreground="White"
+                            BorderThickness="0" FontWeight="Bold">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border CornerRadius="8" Background="{TemplateBinding Background}">
@@ -193,9 +189,100 @@
                         </Button.Template>
                     </Button>
                 </Grid>
-
             </StackPanel>
         </ScrollViewer>
 
+        <ScrollViewer x:Name="PanelMojePupile" Grid.Row="2" VerticalScrollBarVisibility="Auto" Visibility="Collapsed">
+            <StackPanel Margin="30,20,30,20">
+                <TextBlock Text="Moje pupile" FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
+                <ItemsControl x:Name="ListaPupili">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1"
+                                    Background="White" Margin="0,0,0,10" Padding="15,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="{Binding Imie}" FontWeight="Bold" FontSize="14"/>
+                                        <TextBlock Foreground="#FF9CA3AF">
+                                            <Run Text="{Binding Gatunek}"/>
+                                            <Run Text=" · "/>
+                                            <Run Text="{Binding Rasa}"/>
+                                            <Run Text=" · "/>
+                                            <Run Text="{Binding Wiek}"/>
+                                            <Run Text=" lat . "/>
+                                            <Run Text="{Binding Plec}"/>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <Button Grid.Column="1" Content="Edytuj wiek" Margin="5,0,5,0"
+                                            Padding="10,5" Background="#FFE5E7EB" BorderThickness="0"
+                                            FontWeight="Bold" Foreground="#FF374151"
+                                            Tag="{Binding IdPupil}" Click="EdytujPupila_Click">
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border CornerRadius="6" Background="{TemplateBinding Background}">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                    <Button Grid.Column="2" Content="Usuń" Padding="10,5"
+                                            Background="#FFFEE2E2" BorderThickness="0"
+                                            FontWeight="Bold" Foreground="#FFE53E3E"
+                                            Tag="{Binding IdPupil}" Click="UsunPupila_Click">
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border CornerRadius="6" Background="{TemplateBinding Background}">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="PanelMojeWizyty" Grid.Row="2" VerticalScrollBarVisibility="Auto" Visibility="Collapsed">
+            <StackPanel Margin="30,20,30,20">
+                <TextBlock Text="Moje wizyty" FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
+                <ItemsControl x:Name="ListaWizyt">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1"
+                                    Background="White" Margin="0,0,0,10" Padding="15,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="{Binding NazwaZabiegu}" FontWeight="Bold" FontSize="14"/>
+                                        <TextBlock Foreground="#FF9CA3AF">
+                                            <Run Text="{Binding DataRezerwacji, StringFormat=dd.MM.yyyy}"/>
+                                            <Run Text=" · "/>
+                                            <Run Text="{Binding GodzStart, StringFormat=hh\\:mm}"/>
+                                            <Run Text=" · "/>
+                                            <Run Text="{Binding ImieNazwiskoWeterynarza}"/>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <Border Grid.Column="1" CornerRadius="12" Padding="10,4"
+                                            Background="#FFE6F4EA" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding Status}" Foreground="#FF2E7D32" FontWeight="Bold" FontSize="11"/>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>
