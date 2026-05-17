@@ -1,0 +1,245 @@
+Nazwa widoku: studentFormPanel
+
+Cel formularza:
+Dodanie nowego studenta do systemu zgodnie z modelem Student.
+Formularz umozliwia wprowadzenie podstawowych danych osobowych studenta oraz przypisanie go do grupy laboratoryjnej.
+
+Lista zastosowanych kontrolek:
+- TextBox    firstNameTextBox     - imie studenta
+- TextBox    lastNameTextBox      - nazwisko studenta
+- TextBox    albumNumberTextBox   - numer albumu
+- TextBox    emailTextBox         - adres e-mail
+- ComboBox   genderComboBox       - plec (M / K)
+- ComboBox   groupComboBox        - grupa laboratoryjna (INF BSZ Lab 1-4)
+- Button     saveStudentButton    - Zapisz
+- Button     clearStudentButton   - Wyczysc
+- Button     cancelStudentButton  - Anuluj
+
+Dane wejsciowe:
+- imie (tekst)
+- nazwisko (tekst)
+- numer albumu (tekst / liczba)
+- adres e-mail (tekst)
+- plec (M lub K - wybor z listy)
+- grupa (wybor z listy)
+
+Dane wyswietlane:
+- sam formularz (pola puste przy starcie)
+- podpowiedz informujaca o polach wymaganych
+- komunikaty walidacyjne (MessageBox)
+
+Planowane operacje:
+- walidacja danych (sprawdzenie pol wymaganych, format e-mail, unikalnosc numeru albumu)
+- zapis nowego studenta do tabeli Students (INSERT)
+- czyszczenie formularza po zapisie
+- anulowanie operacji bez zapisywania
+- obsluga bledow polaczenia z baza
+
+Nazwa widoku: studentsManagePanel
+
+Cel formularza: Przegladanie listy studentow oraz zarzadzanie nimi - wyszukiwanie, filtrowanie, edycja, usuwanie oraz podglad szczegolowych danych.
+
+Lista zastosowanych kontrolek:
+- TextBox    searchStudentTextBox     - wyszukiwarka
+- ComboBox   groupFilterComboBox      - filtr grupy
+- ComboBox   genderFilterComboBox     - filtr plci (dodatkowo)
+- Button     searchStudentButton      - Szukaj
+- Button     refreshStudentButton     - Odswiez
+- Button     detailsStudentButton     - Szczegoly
+- Button     editStudentButton        - Edytuj
+- Button     deleteStudentButton      - Usun
+- DataGrid   studentsDataGrid         - tabela studentow
+
+Dane wejsciowe:
+- fraza wyszukiwania (imie / nazwisko / nr albumu)
+- wybor grupy z listy rozwijanej
+- wybor plci z listy rozwijanej
+- zaznaczenie wiersza w tabeli (do edycji / usuniecia / szczegolow)
+
+Dane wyswietlane (kolumny DataGrid):
+- ID (identyfikator studenta)
+- Imie
+- Nazwisko
+- Nr albumu
+- Email
+- Plec
+- Grupa
+
+Planowane operacje:
+- pobranie listy studentow z bazy (SELECT z Students JOIN Groups)
+- filtrowanie wynikow wg grupy, plci i frazy wyszukiwania (WHERE)
+- edycja zaznaczonego studenta (UPDATE)
+- usuwanie zaznaczonego studenta (DELETE z potwierdzeniem)
+- wyswietlenie szczegolow w osobnym oknie
+- odswiezanie listy po operacjach
+
+Nazwa widoku: courseFormPanel
+
+Cel formularza:
+Dodanie nowego kursu do systemu zgodnie z modelem Course.
+Formularz umozliwia zdefiniowanie nazwy kursu, liczby punktow ECTS, semestru oraz prowadzacego.
+
+Lista zastosowanych kontrolek:
+- TextBox    courseNameTextBox    - nazwa kursu
+- ComboBox   ectsComboBox         - liczba punktow ECTS (1-8)
+- ComboBox   semesterComboBox     - semestr (1-7)
+- TextBox    teacherNameTextBox   - prowadzacy
+- Button     saveCourseButton     - Zapisz
+- Button     clearCourseButton    - Wyczysc
+- Button     cancelCourseButton   - Anuluj
+
+Dane wejsciowe:
+- nazwa kursu (tekst)
+- ECTS (liczba z listy)
+- semestr (wybor z listy)
+- prowadzacy (tekst - imie i nazwisko)
+
+Dane wyswietlane:
+- sam formularz
+- podpowiedz informujaca o polach wymaganych
+- komunikaty walidacyjne (MessageBox)
+
+Planowane operacje:
+- walidacja danych (pola wymagane: nazwa, ECTS, semestr)
+- zapis nowego kursu do tabeli Courses (INSERT)
+- czyszczenie formularza
+- anulowanie operacji
+
+Nazwa widoku: coursesManagePanel
+
+Cel formularza:
+Przegladanie listy kursow oraz zarzadzanie nimi - wyszukiwanie po nazwie, filtrowanie po semestrze, edycja, usuwanie i podglad szczegolow.
+
+Lista zastosowanych kontrolek:
+- TextBox    searchCourseTextBox      - wyszukiwarka po nazwie kursu
+- ComboBox   semesterFilterComboBox   - filtr semestru
+- Button     searchCourseButton       - Szukaj
+- Button     refreshCourseButton      - Odswiez
+- Button     detailsCourseButton      - Szczegoly
+- Button     editCourseButton         - Edytuj
+- Button     deleteCourseButton       - Usun
+- DataGrid   coursesDataGrid          - tabela kursow
+
+Dane wejsciowe:
+- fraza wyszukiwania (nazwa kursu)
+- wybor semestru z listy rozwijanej
+- zaznaczenie wiersza w tabeli
+
+Dane wyswietlane (kolumny DataGrid):
+- ID (identyfikator kursu)
+- Nazwa kursu
+- ECTS
+- Semestr
+- Prowadzacy
+
+Planowane operacje:
+- pobranie listy kursow z bazy (SELECT z Courses)
+- filtrowanie wynikow wg semestru i nazwy (WHERE)
+- edycja zaznaczonego kursu (UPDATE)
+- usuwanie zaznaczonego kursu (DELETE z potwierdzeniem)
+- wyswietlenie szczegolow kursu
+- odswiezanie listy
+
+Nazwa widoku: resultFormPanel
+
+Cel formularza:
+Dodanie nowego wyniku (oceny) do systemu zgodnie z modelem Result.
+Formularz umozliwia powiazanie studenta z kursem oraz przypisanie oceny i daty wystawienia.
+
+Lista zastosowanych kontrolek:
+- ComboBox    studentResultComboBox  - wybor studenta
+- ComboBox    courseResultComboBox   - wybor kursu
+- ComboBox    gradeComboBox          - ocena (2.0 / 3.0 / 3.5 / 4.0 / 4.5 / 5.0)
+- DatePicker  resultDatePicker       - data dodania wyniku
+- Button      saveResultButton       - Zapisz
+- Button      clearResultButton      - Wyczysc
+- Button      cancelResultButton     - Anuluj
+
+Dane wejsciowe:
+- student (wybor z listy dane laduja sie z bazy)
+- kurs (wybor z listy dane laduja sie z bazy)
+- ocena (wybor z listy tylko dopuszczalne wartosci 2.0-5.0)
+- data dodania (DatePicker domyslnie dzien dzisiejszy)
+
+Dane wyswietlane:
+- sam formularz
+- listy studentow i kursow do wyboru
+- podpowiedz o polach wymaganych
+
+Planowane operacje:
+- zaladowanie listy studentow i kursow z bazy do ComboBox-ow
+- walidacja oceny (CHECK w bazie: 2.0, 3.0, 3.5, 4.0, 4.5, 5.0)
+- zapis nowego wyniku do tabeli Results (INSERT z FK do Students i Courses)
+- czyszczenie formularza
+- anulowanie operacji
+
+Nazwa widoku: resultsManagePanel
+
+Cel formularza:
+Przegladanie wszystkich wystawionych ocen w systemie oraz zarzadzanie nimi.
+Widok umozliwia filtrowanie po studencie, kursie i grupie oraz edycje i usuwanie wynikow.
+
+Lista zastosowanych kontrolek:
+- ComboBox   studentFilterComboBox       - filtr studenta
+- ComboBox   courseFilterComboBox        - filtr kursu
+- ComboBox   groupResultFilterComboBox   - filtr grupy
+- Button     refreshResultButton         - Odswiez
+- Button     editResultButton            - Edytuj
+- Button     deleteResultButton          - Usun
+- DataGrid   resultsDataGrid             - tabela wynikow
+
+Dane wejsciowe:
+- wybor studenta z listy rozwijanej
+- wybor kursu z listy rozwijanej
+- wybor grupy z listy rozwijanej
+- zaznaczenie wiersza w tabeli
+
+Dane wyswietlane (kolumny DataGrid):
+- ID (identyfikator wyniku)
+- Student (imie i nazwisko)
+- Kurs (nazwa kursu)
+- Ocena
+- Data dodania (format dd.MM.yyyy)
+
+Planowane operacje:
+- pobranie listy wynikow z bazy (SELECT z Results JOIN Students, Courses, Groups)
+- filtrowanie wynikow wg studenta, kursu i grupy
+- edycja zaznaczonej oceny (UPDATE)
+- usuwanie zaznaczonego wyniku (DELETE z potwierdzeniem)
+- odswiezanie listy
+
+Nazwa widoku: dashboardPanel
+
+Cel formularza:
+Wyswietlenie ogolnego podsumowania danych w systemie - liczby studentow, kursow, wynikow oraz sredniej ocen. Panel jest widokiem startowym aplikacji, pokazywanym tuz po zalogowaniu.
+
+Lista zastosowanych kontrolek:
+- TextBlock  dashStudentsCountText        - licznik studentow
+- TextBlock  dashCoursesCountText         - licznik kursow
+- TextBlock  dashResultsCountText         - licznik wynikow
+- TextBlock  dashAverageGradeText         - srednia ocen
+- TextBlock  dashFemaleCountText          - liczba kobiet (Szybkie informacje)
+- DataGrid   dashRecentStudentsDataGrid   - ostatnio dodani studenci
+
+Dane wyswietlane:
+- 4 karty statystyk: liczba studentow, kursow, wynikow, srednia ocen
+- tabela "Ostatnio dodani studenci" z kolumnami: ID, Imie, Nazwisko, Nr albumu, Grupa
+- sekcja "Szybkie informacje" z liczba kobiet
+
+Planowane operacje:
+- obliczenie sredniej arytmetycznej ocen ze wszystkich wynikow
+- pobranie 5 ostatnio dodanych studentow
+- zliczenie studentow plci zenskiej
+- odswiezanie danych przy kazdym wejsciu na panel
+
+Sekcja menu                       Panel uruchamiany
+
+Student / Rejestracja             studentFormPanel
+Student / Zarzadzanie studentami  studentsManagePanel
+Kursy / Nowy kurs                 courseFormPanel
+Kursy / Zarzadzanie kursami       coursesManagePanel
+Wyniki / Nowy wynik               resultFormPanel
+Wyniki / Zarzadzanie wynikiem     resultsManagePanel
+Dashboard / Dashboard             dashboardPanel
+
+

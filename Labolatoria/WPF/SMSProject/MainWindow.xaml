@@ -11,94 +11,215 @@
         WindowStartupLocation="CenterScreen"
         Background="#FFF5F7FB">
 
-    <Window.Resources>
-        <Style x:Key="SubMenuButtonStyle" TargetType="Button">
-            <Setter Property="Height" Value="50"/>
-            <Setter Property="Margin" Value="10,5"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#FF1976D2"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="Padding" Value="15,0,0,0"/>
-        </Style>
+	<Window.Resources>
+		<Style x:Key="SubMenuButtonStyle" TargetType="Button">
+			<Setter Property="Height" Value="50"/>
+			<Setter Property="Margin" Value="10,5"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="Background" Value="#FF1976D2"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+			<Setter Property="FontSize" Value="18"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="Cursor" Value="Hand"/>
+			<Setter Property="HorizontalContentAlignment" Value="Left"/>
+			<Setter Property="Padding" Value="15,0,0,0"/>
+		</Style>
 
-        <Style x:Key="MenuExpanderStyle" TargetType="Expander">
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="IsExpanded" Value="True"/>
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-        </Style>
-    </Window.Resources>
+		<Style x:Key="MenuExpanderStyle" TargetType="Expander">
+			<Setter Property="Margin" Value="10"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="IsExpanded" Value="True"/>
+			<Setter Property="FontSize" Value="18"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+		</Style>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="380"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+		<Style x:Key="FormLabelStyle" TargetType="TextBlock">
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+			<Setter Property="Foreground" Value="#FF333333"/>
+			<Setter Property="Margin" Value="0,0,0,5"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+		</Style>
 
-        <Border Grid.Column="0" Background="#FF0047A1" CornerRadius="0,18,18,0">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <StackPanel Margin="0,10">
+		<Style x:Key="FormTextBoxStyle" TargetType="TextBox">
+			<Setter Property="Height" Value="34"/>
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="Padding" Value="8,6"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="BorderBrush" Value="#FFC9D2E5"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Background" Value="White"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+		</Style>
 
-                    <StackPanel Margin="0,10,0,20" HorizontalAlignment="Center">
-                        <Border Background="White" CornerRadius="40" Padding="8">
-                            <Image Height="100" Width="100" Source="/logo_ur.png" VerticalAlignment="Top"/>
+		<Style x:Key="FormComboBoxStyle" TargetType="ComboBox">
+			<Setter Property="Height" Value="34"/>
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="Padding" Value="8,4"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+		</Style>
 
-                        </Border>
-                        <TextBlock Text="Student Management System"
+		<Style x:Key="FormDatePickerStyle" TargetType="DatePicker">
+			<Setter Property="Height" Value="34"/>
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+		</Style>
+
+		<Style x:Key="PrimaryButtonStyle" TargetType="Button">
+			<Setter Property="Height" Value="36"/>
+			<Setter Property="MinWidth" Value="100"/>
+			<Setter Property="Margin" Value="6,0,0,0"/>
+			<Setter Property="Padding" Value="14,0"/>
+			<Setter Property="Background" Value="#FF1976D2"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="Cursor" Value="Hand"/>
+		</Style>
+
+		<Style x:Key="SecondaryButtonStyle" TargetType="Button">
+			<Setter Property="Height" Value="36"/>
+			<Setter Property="MinWidth" Value="100"/>
+			<Setter Property="Margin" Value="6,0,0,0"/>
+			<Setter Property="Padding" Value="14,0"/>
+			<Setter Property="Background" Value="#FFEAF1FB"/>
+			<Setter Property="Foreground" Value="#FF0047A1"/>
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+			<Setter Property="BorderBrush" Value="#FFB9CDEC"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Cursor" Value="Hand"/>
+		</Style>
+
+		<Style x:Key="DangerButtonStyle" TargetType="Button">
+			<Setter Property="Height" Value="36"/>
+			<Setter Property="MinWidth" Value="100"/>
+			<Setter Property="Margin" Value="6,0,0,0"/>
+			<Setter Property="Padding" Value="14,0"/>
+			<Setter Property="Background" Value="#FFB71C1C"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="Cursor" Value="Hand"/>
+		</Style>
+
+		<Style x:Key="DefaultDataGridStyle" TargetType="DataGrid">
+			<Setter Property="Background" Value="White"/>
+			<Setter Property="BorderBrush" Value="#FFD8E1F0"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="RowBackground" Value="White"/>
+			<Setter Property="AlternatingRowBackground" Value="#FFF7F9FC"/>
+			<Setter Property="GridLinesVisibility" Value="Horizontal"/>
+			<Setter Property="HorizontalGridLinesBrush" Value="#FFE5EAF3"/>
+			<Setter Property="AutoGenerateColumns" Value="False"/>
+			<Setter Property="CanUserAddRows" Value="False"/>
+			<Setter Property="IsReadOnly" Value="True"/>
+			<Setter Property="HeadersVisibility" Value="Column"/>
+			<Setter Property="FontSize" Value="13"/>
+			<Setter Property="RowHeight" Value="32"/>
+			<Setter Property="ColumnHeaderHeight" Value="36"/>
+		</Style>
+	</Window.Resources>
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="380"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<Border Grid.Column="0" Background="#FF0047A1" CornerRadius="0,18,18,0">
+			<ScrollViewer VerticalScrollBarVisibility="Auto">
+				<StackPanel Margin="0,10">
+
+					<StackPanel Margin="0,10,0,20" HorizontalAlignment="Center">
+						<Border Background="White" CornerRadius="40" Padding="8">
+							<Image Height="100" Width="100" Source="/ur.png" VerticalAlignment="Top"/>
+						</Border>
+						<TextBlock Text="Student Management System"
                                    Foreground="White"
                                    FontSize="20"
                                    FontWeight="Bold"
                                    HorizontalAlignment="Center"
                                    Margin="0,12,0,0"/>
-                        <TextBlock Text="Uniwersytet Rzeszowski"
+						<TextBlock Text="Uniwersytet Rzeszowski"
                                    Foreground="#FFD9E6FF"
                                    FontSize="12"
                                    HorizontalAlignment="Center"/>
-                    </StackPanel>
+					</StackPanel>
 
-                    <Expander Header="Student" Style="{StaticResource MenuExpanderStyle}">
-                        <StackPanel>
-                            <Button x:Name="RegisterStudentButton"
+					<Expander Header="Student" Style="{StaticResource MenuExpanderStyle}">
+						<StackPanel>
+							<Button x:Name="RegisterStudentButton"
                                     Content="Rejestracja"
-                                    
-                                    Style="{StaticResource SubMenuButtonStyle}"/>
-                            <Button x:Name="ManageStudentsButton"
+                                    Style="{StaticResource SubMenuButtonStyle}"
+                                    Click="RegisterStudentButton_Click"/>
+							<Button x:Name="ManageStudentsButton"
                                     Content="Zarządzanie studentami"
-                                    Style="{StaticResource SubMenuButtonStyle}"/>
-                            <Button x:Name="PrintStudentButton"
+                                    Style="{StaticResource SubMenuButtonStyle}"
+                                    Click="ManageStudentsButton_Click"/>
+							<Button x:Name="PrintStudentButton"
                                     Content="Drukuj"
                                     Style="{StaticResource SubMenuButtonStyle}"/>
-                        </StackPanel>
-                    </Expander>
+						</StackPanel>
+					</Expander>
 
-                    <Expander Header="Kursy" Style="{StaticResource MenuExpanderStyle}">
-                        <StackPanel>
-                            <Button Content="Lista kursów" Style="{StaticResource SubMenuButtonStyle}"/>
-                            <Button Content="Przypisz kurs" Style="{StaticResource SubMenuButtonStyle}"/>
-                        </StackPanel>
-                    </Expander>
+					<Expander Header="Kursy" Style="{StaticResource MenuExpanderStyle}">
+						<StackPanel>
+							<Button x:Name="NewCourseButton"
+                                    Content="Nowy kurs"
+                                    Style="{StaticResource SubMenuButtonStyle}"
+                                    Click="NewCourseButton_Click"/>
+							<Button x:Name="ManageCoursesButton"
+                                    Content="Zarządzanie kursami"
+                                    Style="{StaticResource SubMenuButtonStyle}"
+                                    Click="ManageCoursesButton_Click"/>
+							<Button x:Name="PrintCoursesButton"
+                                    Content="Drukuj kursy"
+                                    Style="{StaticResource SubMenuButtonStyle}"/>
+						</StackPanel>
+					</Expander>
 
-                    <Expander Header="Wyniki" Style="{StaticResource MenuExpanderStyle}">
-                        <StackPanel>
-                            <Button Content="Oceny" Style="{StaticResource SubMenuButtonStyle}"/>
-                            <Button Content="Statystyki" Style="{StaticResource SubMenuButtonStyle}"/>
-                        </StackPanel>
-                    </Expander>
+					<Expander Header="Wyniki" Style="{StaticResource MenuExpanderStyle}">
+						<StackPanel>
+							<Button x:Name="NewResultButton"
+                                    Content="Nowy wynik"
+                                    Style="{StaticResource SubMenuButtonStyle}"
+                                    Click="NewResultButton_Click"/>
+							<Button x:Name="ManageResultsButton"
+                                    Content="Zarządzanie wynikiem"
+                                    Style="{StaticResource SubMenuButtonStyle}"
+                                    Click="ManageResultsButton_Click"/>
+							<Button x:Name="PrintResultsButton"
+                                    Content="Drukuj wyniki"
+                                    Style="{StaticResource SubMenuButtonStyle}"/>
+						</StackPanel>
+					</Expander>
 
-                    <Expander Header="Dashboard" Style="{StaticResource MenuExpanderStyle}">
-                        <StackPanel>
-                            <Button Content="Panel główny" Style="{StaticResource SubMenuButtonStyle}"/>
-                        </StackPanel>
-                    </Expander>
-                    
-                    <Button x:Name="ExitButton"
+					<Expander Header="Dashboard" Style="{StaticResource MenuExpanderStyle}">
+						<StackPanel>
+							<Button x:Name="DashboardButton"
+                                    Content="Dashboard"
+                                    Style="{StaticResource SubMenuButtonStyle}"
+                                    Click="DashboardButton_Click"/>
+							<Button x:Name="RaportyButton"
+                                    Content="Raporty"
+                                    Style="{StaticResource SubMenuButtonStyle}"
+                                    Click="RaportyButton_Click"/>
+							<Button x:Name="StatystykiButton"
+                                    Content="Statystyki"
+                                    Style="{StaticResource SubMenuButtonStyle}"
+                                    Click="StatystykiButton_Click"/>
+						</StackPanel>
+					</Expander>
+
+					<Button x:Name="ExitButton"
+							Click="Exit"
                             Content="Wyjście"
                             Margin="10,25,10,10"
                             Height="45"
@@ -106,149 +227,645 @@
                             Foreground="White"
                             FontSize="18"
                             FontWeight="Bold"/>
-                </StackPanel>
-            </ScrollViewer>
-        </Border>
-        
-        <Grid Grid.Column="1" Margin="15">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="160"/>
-            </Grid.RowDefinitions>
+				</StackPanel>
+			</ScrollViewer>
+		</Border>
 
-            <Border Grid.Row="0" Background="White" CornerRadius="18" Padding="22" Margin="0,0,0,12">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="120"/>
-                    </Grid.ColumnDefinitions>
+		<Grid Grid.Column="1" Margin="15">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="160"/>
+			</Grid.RowDefinitions>
 
-                    <StackPanel>
-                        <TextBlock Text="Uniwersytet Rzeszowski"
+			<Border Grid.Row="0" Background="White" CornerRadius="18" Padding="22" Margin="0,0,0,12">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+						<ColumnDefinition Width="120"/>
+					</Grid.ColumnDefinitions>
+
+					<StackPanel>
+						<TextBlock Text="Uniwersytet Rzeszowski"
                                    FontSize="30"
                                    FontWeight="Bold"
                                    Foreground="#FF0047A1"/>
 
-                        <StackPanel Orientation="Horizontal" Margin="0,14,0,0">
-                            <TextBlock Text="Witaj:"
-                                       FontSize="18"
-                                       FontWeight="SemiBold"/>
-                            <TextBlock x:Name="welcomeUserText"
-                                       Text="Administrator"
-                                       FontSize="18"
-                                       Margin="8,0,0,0"/>
-                        </StackPanel>
+						<StackPanel Orientation="Horizontal" Margin="0,14,0,0">
+							<TextBlock Text="Witaj:" FontSize="18" FontWeight="SemiBold"/>
+							<TextBlock x:Name="welcomeUserText" Text="Administrator"
+                                       FontSize="18" Margin="8,0,0,0"/>
+						</StackPanel>
 
-                        <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
-                            <TextBlock Text="Rola:"
-                                       FontSize="18"
-                                       FontWeight="SemiBold"/>
-                            <TextBlock x:Name="roleText"
-                                       Text="Administrator systemu"
-                                       FontSize="18"
-                                       Margin="8,0,0,0"/>
-                        </StackPanel>
-                    </StackPanel>
-                    
-                    <Border Grid.Column="1" Width="100" Height="100"
+						<StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+							<TextBlock Text="Rola:" FontSize="18" FontWeight="SemiBold"/>
+							<TextBlock x:Name="roleText" Text="Administrator systemu"
+                                       FontSize="18" Margin="8,0,0,0"/>
+						</StackPanel>
+					</StackPanel>
+
+					<Border Grid.Column="1" Width="100" Height="100"
                             Background="#FFEAF1FB" CornerRadius="50">
-                        <TextBlock Text="Ł"
-                                   FontSize="46"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
-                    </Border>
-                </Grid>
-            </Border>
-            
-            <Border Grid.Row="1" Background="White" CornerRadius="18" Padding="15" Margin="0,0,0,12">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+						<TextBlock Text="Ł" FontSize="46"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					</Border>
+				</Grid>
+			</Border>
 
-                    <TextBlock x:Name="sectionTitleText"
+			<Border Grid.Row="1" Background="White" CornerRadius="18" Padding="15" Margin="0,0,0,12">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="45"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
+
+					<TextBlock x:Name="sectionTitleText"
                                Text="Panel główny"
                                FontSize="22"
                                FontWeight="Bold"
                                Foreground="#FF0047A1"/>
 
-                    <Border Grid.Row="1" Background="#FFF7F9FC"
+					<Border Grid.Row="1" Background="#FFF7F9FC"
                             CornerRadius="12"
                             BorderBrush="#FFD8E1F0"
                             BorderThickness="1"
                             Padding="10">
-                        <Grid x:Name="contentArea"/>
-                    </Border>
-                </Grid>
-            </Border>
+						<Grid x:Name="contentArea">
 
-            <Border Grid.Row="2" Background="#FF0047A1" CornerRadius="18" Padding="22">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="260"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    
-                    <StackPanel>
-                        <TextBlock Text="Liczba studentów"
-                                   Foreground="White"
-                                   FontSize="18"
-                                   FontWeight="Bold"
-                                   Margin="0, 0, 0, 50"/>
+							<Grid x:Name="dashboardPanel" Visibility="Visible" Margin="10">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="*"/>
+								</Grid.RowDefinitions>
 
-                        <TextBlock Text="Mężczyźni: 0"
-                                   Foreground="White"
-                                   FontSize="12"
-                                   FontWeight="Bold"/>
+								<TextBlock Grid.Row="0" Text="Dashboard"
+                                           FontSize="20" FontWeight="Bold" Foreground="#FF0047A1"
+                                           Margin="0,0,0,15"/>
 
-                        <TextBlock Text="Kobiety: 0"
-                                   Foreground="White"
-                                   FontSize="12"
-                                   FontWeight="Bold"/>
+								<Grid Grid.Row="1" Margin="0,0,0,15">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
 
-                    </StackPanel>
+									<Border Grid.Column="0" Margin="0,0,8,0"
+                                            Background="White" CornerRadius="10"
+                                            BorderBrush="#FFD8E1F0" BorderThickness="1" Padding="18">
+										<StackPanel>
+											<TextBlock Text="Liczba studentów"
+                                                       FontSize="14" FontWeight="SemiBold"
+                                                       Foreground="#FF333333"/>
+											<TextBlock x:Name="dashStudentsCountText" Text="0"
+                                                       FontSize="32" FontWeight="Bold"
+                                                       Foreground="#FF0047A1"
+                                                       Margin="0,8,0,0"/>
+										</StackPanel>
+									</Border>
 
-                    <StackPanel Grid.Column="1">
-                        <TextBlock Text="Grupa laboratoryjna"
-                                   Foreground="White"
-                                   FontSize="18"
-                                   FontWeight="Bold"
-                                   Margin="0,0,0,10"/>
-                        <ComboBox x:Name="classComboBox"
-                                  Height="34"
-                                  FontSize="15"
-                                  SelectedIndex="0">
-                            <ComboBoxItem Content="LAB-1"/>
-                            <ComboBoxItem Content="LAB-2"/>
-                            <ComboBoxItem Content="LAB-3"/>
-                            <ComboBoxItem Content="LAB-4"/>
-                        </ComboBox>
-                    </StackPanel>
+									<Border Grid.Column="1" Margin="4,0,4,0"
+                                            Background="White" CornerRadius="10"
+                                            BorderBrush="#FFD8E1F0" BorderThickness="1" Padding="18">
+										<StackPanel>
+											<TextBlock Text="Liczba kursów"
+                                                       FontSize="14" FontWeight="SemiBold"
+                                                       Foreground="#FF333333"/>
+											<TextBlock x:Name="dashCoursesCountText" Text="0"
+                                                       FontSize="32" FontWeight="Bold"
+                                                       Foreground="#FF0047A1"
+                                                       Margin="0,8,0,0"/>
+										</StackPanel>
+									</Border>
 
-                    <StackPanel Grid.Column="2" HorizontalAlignment="Right">
-                        <TextBlock Text="Statystyki"
-                                   Foreground="White"
-                                   FontSize="18"
-                                   FontWeight="Bold"
-                                   HorizontalAlignment="Right"
-                                   Margin="0, 0, 0, 50"/>
+									<Border Grid.Column="2" Margin="4,0,4,0"
+                                            Background="White" CornerRadius="10"
+                                            BorderBrush="#FFD8E1F0" BorderThickness="1" Padding="18">
+										<StackPanel>
+											<TextBlock Text="Liczba wyników"
+                                                       FontSize="14" FontWeight="SemiBold"
+                                                       Foreground="#FF333333"/>
+											<TextBlock x:Name="dashResultsCountText" Text="0"
+                                                       FontSize="32" FontWeight="Bold"
+                                                       Foreground="#FF0047A1"
+                                                       Margin="0,8,0,0"/>
+										</StackPanel>
+									</Border>
 
-                        <TextBlock Text="Mężczyźni: 0"
-                                   Foreground="White"
-                                   FontSize="12"
-                                   FontWeight="Bold"/>
+									<Border Grid.Column="3" Margin="8,0,0,0"
+                                            Background="White" CornerRadius="10"
+                                            BorderBrush="#FFD8E1F0" BorderThickness="1" Padding="18">
+										<StackPanel>
+											<TextBlock Text="Średnia ocen"
+                                                       FontSize="14" FontWeight="SemiBold"
+                                                       Foreground="#FF333333"/>
+											<TextBlock x:Name="dashAverageGradeText" Text="0.00"
+                                                       FontSize="32" FontWeight="Bold"
+                                                       Foreground="#FF0047A1"
+                                                       Margin="0,8,0,0"/>
+										</StackPanel>
+									</Border>
+								</Grid>
 
-                        <TextBlock Text="Kobiety: 0"
-                                   Foreground="White"
-                                   FontSize="12"
-                                   FontWeight="Bold"/>
+								<Grid Grid.Row="2">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="2*"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
 
-                    </StackPanel>
-                </Grid>
-            </Border>
-        </Grid>
-    </Grid>
+									<Border Grid.Column="0" Margin="0,0,8,0"
+                                            Background="White" CornerRadius="10"
+                                            BorderBrush="#FFD8E1F0" BorderThickness="1" Padding="14">
+										<Grid>
+											<Grid.RowDefinitions>
+												<RowDefinition Height="Auto"/>
+												<RowDefinition Height="*"/>
+											</Grid.RowDefinitions>
+
+											<TextBlock Grid.Row="0" Text="Ostatnio dodani studenci"
+                                                       FontSize="15" FontWeight="Bold"
+                                                       Foreground="#FF333333" Margin="0,0,0,10"/>
+
+											<DataGrid Grid.Row="1" x:Name="dashRecentStudentsDataGrid"
+                                                      Style="{StaticResource DefaultDataGridStyle}">
+												<DataGrid.Columns>
+													<DataGridTextColumn Header="ID"        Binding="{Binding StudentId}"   Width="60"/>
+													<DataGridTextColumn Header="Imię"      Binding="{Binding FirstName}"   Width="*"/>
+													<DataGridTextColumn Header="Nazwisko"  Binding="{Binding LastName}"    Width="*"/>
+													<DataGridTextColumn Header="Nr albumu" Binding="{Binding AlbumNumber}" Width="120"/>
+													<DataGridTextColumn Header="Grupa"     Binding="{Binding GroupName}"   Width="120"/>
+												</DataGrid.Columns>
+											</DataGrid>
+										</Grid>
+									</Border>
+
+									<Border Grid.Column="1" Margin="8,0,0,0"
+                                            Background="White" CornerRadius="10"
+                                            BorderBrush="#FFD8E1F0" BorderThickness="1" Padding="14">
+										<StackPanel>
+											<TextBlock Text="Szybkie informacje"
+                                                       FontSize="15" FontWeight="Bold"
+                                                       Foreground="#FF333333" Margin="0,0,0,10"/>
+
+											<TextBlock Text="Kobiety"
+                                                       FontSize="14" FontWeight="SemiBold"
+                                                       Foreground="#FF6B7A99"
+                                                       Margin="0,8,0,0"/>
+											<TextBlock x:Name="dashFemaleCountText" Text="0"
+                                                       FontSize="24" FontWeight="Bold"
+                                                       Foreground="#FF0047A1"
+                                                       Margin="0,2,0,0"/>
+										</StackPanel>
+									</Border>
+								</Grid>
+							</Grid>
+
+							<Grid x:Name="studentFormPanel" Visibility="Collapsed" Margin="10">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="Auto"/>
+								</Grid.RowDefinitions>
+
+								<TextBlock Grid.Row="0" Text="Rejestracja studenta"
+                                           FontSize="20" FontWeight="Bold" Foreground="#FF0047A1"
+                                           Margin="0,0,0,15"/>
+
+								<Grid Grid.Row="1" Margin="0,10,0,0">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="140"/>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="40"/>
+										<ColumnDefinition Width="140"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="50"/>
+										<RowDefinition Height="50"/>
+										<RowDefinition Height="50"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+
+									<TextBlock Grid.Row="0" Grid.Column="0" Text="Imię:" Style="{StaticResource FormLabelStyle}"/>
+									<TextBox   Grid.Row="0" Grid.Column="1" x:Name="firstNameTextBox" Style="{StaticResource FormTextBoxStyle}"/>
+									<TextBlock Grid.Row="0" Grid.Column="3" Text="Nazwisko:" Style="{StaticResource FormLabelStyle}"/>
+									<TextBox   Grid.Row="0" Grid.Column="4" x:Name="lastNameTextBox" Style="{StaticResource FormTextBoxStyle}"/>
+
+									<TextBlock Grid.Row="1" Grid.Column="0" Text="Nr albumu:" Style="{StaticResource FormLabelStyle}"/>
+									<TextBox   Grid.Row="1" Grid.Column="1" x:Name="albumNumberTextBox" Style="{StaticResource FormTextBoxStyle}"/>
+									<TextBlock Grid.Row="1" Grid.Column="3" Text="Adres e-mail:" Style="{StaticResource FormLabelStyle}"/>
+									<TextBox   Grid.Row="1" Grid.Column="4" x:Name="emailTextBox" Style="{StaticResource FormTextBoxStyle}"/>
+
+									<TextBlock Grid.Row="2" Grid.Column="0" Text="Płeć:" Style="{StaticResource FormLabelStyle}"/>
+									<ComboBox  Grid.Row="2" Grid.Column="1" x:Name="genderComboBox" Style="{StaticResource FormComboBoxStyle}">
+										<ComboBoxItem Content="M"/>
+										<ComboBoxItem Content="K"/>
+									</ComboBox>
+									<TextBlock Grid.Row="2" Grid.Column="3" Text="Grupa:" Style="{StaticResource FormLabelStyle}"/>
+									<ComboBox  Grid.Row="2" Grid.Column="4" x:Name="groupComboBox" Style="{StaticResource FormComboBoxStyle}">
+										<ComboBoxItem Content="INF BSZ Lab 1"/>
+										<ComboBoxItem Content="INF BSZ Lab 2"/>
+										<ComboBoxItem Content="INF BSZ Lab 3"/>
+										<ComboBoxItem Content="INF BSZ Lab 4"/>
+									</ComboBox>
+
+									<TextBlock Grid.Row="3" Grid.ColumnSpan="5"
+                                               Text="Uzupełnij dane studenta zgodnie z formularzem. Pola wymagane: imię, nazwisko, numer albumu, email, płeć, grupa."
+                                               FontSize="12" Foreground="#FF6B7A99" FontStyle="Italic"
+                                               Margin="0,15,0,0" TextWrapping="Wrap"/>
+								</Grid>
+
+								<StackPanel Grid.Row="2" Orientation="Horizontal"
+                                            HorizontalAlignment="Right" Margin="0,20,0,0">
+									<Button x:Name="clearStudentButton" Content="Wyczyść"
+                                            Style="{StaticResource SecondaryButtonStyle}"
+                                            Click="ClearStudentButton_Click"/>
+									<Button x:Name="cancelStudentButton" Content="Anuluj"
+                                            Style="{StaticResource SecondaryButtonStyle}"
+                                            Click="CancelStudentButton_Click"/>
+									<Button x:Name="saveStudentButton" Content="Zapisz"
+                                            Style="{StaticResource PrimaryButtonStyle}"
+                                            Click="SaveStudentButton_Click"/>
+								</StackPanel>
+							</Grid>
+
+							<!-- ============ PANEL 2: ZARZĄDZANIE STUDENTAMI ============ -->
+							<Grid x:Name="studentsManagePanel" Visibility="Collapsed" Margin="10">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="Auto"/>
+								</Grid.RowDefinitions>
+
+								<TextBlock Grid.Row="0" Text="Zarządzanie studentami"
+                                           FontSize="20" FontWeight="Bold" Foreground="#FF0047A1"
+                                           Margin="0,0,0,15"/>
+
+								<Grid Grid.Row="1" Margin="0,0,0,12">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="220"/>
+										<ColumnDefinition Width="220"/>
+										<ColumnDefinition Width="Auto"/>
+										<ColumnDefinition Width="Auto"/>
+									</Grid.ColumnDefinitions>
+
+									<TextBox Grid.Column="0" x:Name="searchStudentTextBox"
+                                             Style="{StaticResource FormTextBoxStyle}" Margin="0,0,8,0"
+                                             ToolTip="Szukaj po imieniu, nazwisku lub numerze albumu"/>
+
+									<ComboBox Grid.Column="1" x:Name="groupFilterComboBox"
+                                              Style="{StaticResource FormComboBoxStyle}" Margin="0,0,8,0">
+										<ComboBoxItem Content="Wszystkie grupy" IsSelected="True"/>
+										<ComboBoxItem Content="INF BSZ Lab 1"/>
+										<ComboBoxItem Content="INF BSZ Lab 2"/>
+										<ComboBoxItem Content="INF BSZ Lab 3"/>
+										<ComboBoxItem Content="INF BSZ Lab 4"/>
+									</ComboBox>
+
+									<ComboBox Grid.Column="2" x:Name="genderFilterComboBox"
+                                              Style="{StaticResource FormComboBoxStyle}" Margin="0,0,8,0">
+										<ComboBoxItem Content="Wszystkie płcie" IsSelected="True"/>
+										<ComboBoxItem Content="M"/>
+										<ComboBoxItem Content="K"/>
+									</ComboBox>
+
+									<Button Grid.Column="3" x:Name="searchStudentButton" Content="Szukaj"
+                                            Style="{StaticResource PrimaryButtonStyle}"
+                                            Click="SearchStudentButton_Click"/>
+									<Button Grid.Column="4" x:Name="refreshStudentButton" Content="Odśwież"
+                                            Style="{StaticResource SecondaryButtonStyle}"
+                                            Click="RefreshStudentButton_Click"/>
+								</Grid>
+
+								<DataGrid Grid.Row="2" x:Name="studentsDataGrid" Style="{StaticResource DefaultDataGridStyle}">
+									<DataGrid.Columns>
+										<DataGridTextColumn Header="ID"        Binding="{Binding StudentId}"   Width="60"/>
+										<DataGridTextColumn Header="Imię"      Binding="{Binding FirstName}"   Width="*"/>
+										<DataGridTextColumn Header="Nazwisko"  Binding="{Binding LastName}"    Width="*"/>
+										<DataGridTextColumn Header="Nr albumu" Binding="{Binding AlbumNumber}" Width="120"/>
+										<DataGridTextColumn Header="Email"     Binding="{Binding Email}"       Width="*"/>
+										<DataGridTextColumn Header="Płeć"      Binding="{Binding Gender}"      Width="60"/>
+										<DataGridTextColumn Header="Grupa"     Binding="{Binding GroupName}"   Width="140"/>
+									</DataGrid.Columns>
+								</DataGrid>
+
+								<StackPanel Grid.Row="3" Orientation="Horizontal"
+                                            HorizontalAlignment="Right" Margin="0,12,0,0">
+									<Button x:Name="detailsStudentButton" Content="Szczegóły"
+                                            Style="{StaticResource SecondaryButtonStyle}"
+                                            Click="DetailsStudentButton_Click"/>
+									<Button x:Name="editStudentButton" Content="Edytuj"
+                                            Style="{StaticResource PrimaryButtonStyle}"
+                                            Click="EditStudentButton_Click"/>
+									<Button x:Name="deleteStudentButton" Content="Usuń"
+                                            Style="{StaticResource DangerButtonStyle}"
+                                            Click="DeleteStudentButton_Click"/>
+								</StackPanel>
+							</Grid>
+
+							<Grid x:Name="courseFormPanel" Visibility="Collapsed" Margin="10">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="Auto"/>
+								</Grid.RowDefinitions>
+
+								<TextBlock Grid.Row="0" Text="Nowy kurs"
+                                           FontSize="20" FontWeight="Bold" Foreground="#FF0047A1"
+                                           Margin="0,0,0,15"/>
+
+								<Grid Grid.Row="1" Margin="0,10,0,0">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="160"/>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="40"/>
+										<ColumnDefinition Width="140"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="50"/>
+										<RowDefinition Height="50"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+
+									<TextBlock Grid.Row="0" Grid.Column="0" Text="Nazwa kursu:" Style="{StaticResource FormLabelStyle}"/>
+									<TextBox   Grid.Row="0" Grid.Column="1" x:Name="courseNameTextBox" Style="{StaticResource FormTextBoxStyle}"/>
+									<TextBlock Grid.Row="0" Grid.Column="3" Text="ECTS:" Style="{StaticResource FormLabelStyle}"/>
+									<ComboBox  Grid.Row="0" Grid.Column="4" x:Name="ectsComboBox" Style="{StaticResource FormComboBoxStyle}">
+										<ComboBoxItem Content="1"/>
+										<ComboBoxItem Content="2"/>
+										<ComboBoxItem Content="3"/>
+										<ComboBoxItem Content="4"/>
+										<ComboBoxItem Content="5"/>
+										<ComboBoxItem Content="6"/>
+										<ComboBoxItem Content="7"/>
+										<ComboBoxItem Content="8"/>
+									</ComboBox>
+
+									<TextBlock Grid.Row="1" Grid.Column="0" Text="Semestr:" Style="{StaticResource FormLabelStyle}"/>
+									<ComboBox  Grid.Row="1" Grid.Column="1" x:Name="semesterComboBox" Style="{StaticResource FormComboBoxStyle}">
+										<ComboBoxItem Content="Semestr 1"/>
+										<ComboBoxItem Content="Semestr 2"/>
+										<ComboBoxItem Content="Semestr 3"/>
+										<ComboBoxItem Content="Semestr 4"/>
+										<ComboBoxItem Content="Semestr 5"/>
+										<ComboBoxItem Content="Semestr 6"/>
+										<ComboBoxItem Content="Semestr 7"/>
+									</ComboBox>
+									<TextBlock Grid.Row="1" Grid.Column="3" Text="Prowadzący:" Style="{StaticResource FormLabelStyle}"/>
+									<TextBox   Grid.Row="1" Grid.Column="4" x:Name="teacherNameTextBox" Style="{StaticResource FormTextBoxStyle}"/>
+
+									<TextBlock Grid.Row="2" Grid.ColumnSpan="5"
+                                               Text="Uzupełnij dane kursu. Pola wymagane: nazwa kursu, liczba punktów ECTS, semestr."
+                                               FontSize="12" Foreground="#FF6B7A99" FontStyle="Italic"
+                                               Margin="0,15,0,0" TextWrapping="Wrap"/>
+								</Grid>
+
+								<StackPanel Grid.Row="2" Orientation="Horizontal"
+                                            HorizontalAlignment="Right" Margin="0,20,0,0">
+									<Button x:Name="clearCourseButton" Content="Wyczyść"
+                                            Style="{StaticResource SecondaryButtonStyle}"
+                                            Click="ClearCourseButton_Click"/>
+									<Button x:Name="cancelCourseButton" Content="Anuluj"
+                                            Style="{StaticResource SecondaryButtonStyle}"
+                                            Click="CancelCourseButton_Click"/>
+									<Button x:Name="saveCourseButton" Content="Zapisz"
+                                            Style="{StaticResource PrimaryButtonStyle}"
+                                            Click="SaveCourseButton_Click"/>
+								</StackPanel>
+							</Grid>
+
+							<Grid x:Name="coursesManagePanel" Visibility="Collapsed" Margin="10">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="Auto"/>
+								</Grid.RowDefinitions>
+
+								<TextBlock Grid.Row="0" Text="Zarządzanie kursami"
+                                           FontSize="20" FontWeight="Bold" Foreground="#FF0047A1"
+                                           Margin="0,0,0,15"/>
+
+								<Grid Grid.Row="1" Margin="0,0,0,12">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="220"/>
+										<ColumnDefinition Width="Auto"/>
+										<ColumnDefinition Width="Auto"/>
+									</Grid.ColumnDefinitions>
+
+									<TextBox Grid.Column="0" x:Name="searchCourseTextBox"
+                                             Style="{StaticResource FormTextBoxStyle}" Margin="0,0,8,0"
+                                             ToolTip="Szukaj po nazwie kursu"/>
+
+									<ComboBox Grid.Column="1" x:Name="semesterFilterComboBox"
+                                              Style="{StaticResource FormComboBoxStyle}" Margin="0,0,8,0">
+										<ComboBoxItem Content="Wszystkie semestry" IsSelected="True"/>
+										<ComboBoxItem Content="Semestr 1"/>
+										<ComboBoxItem Content="Semestr 2"/>
+										<ComboBoxItem Content="Semestr 3"/>
+										<ComboBoxItem Content="Semestr 4"/>
+										<ComboBoxItem Content="Semestr 5"/>
+										<ComboBoxItem Content="Semestr 6"/>
+										<ComboBoxItem Content="Semestr 7"/>
+									</ComboBox>
+
+									<Button Grid.Column="2" x:Name="searchCourseButton" Content="Szukaj"
+                                            Style="{StaticResource PrimaryButtonStyle}"
+                                            Click="SearchCourseButton_Click"/>
+									<Button Grid.Column="3" x:Name="refreshCourseButton" Content="Odśwież"
+                                            Style="{StaticResource SecondaryButtonStyle}"
+                                            Click="RefreshCourseButton_Click"/>
+								</Grid>
+
+								<DataGrid Grid.Row="2" x:Name="coursesDataGrid" Style="{StaticResource DefaultDataGridStyle}">
+									<DataGrid.Columns>
+										<DataGridTextColumn Header="ID"          Binding="{Binding CourseId}"    Width="60"/>
+										<DataGridTextColumn Header="Nazwa kursu" Binding="{Binding CourseName}"  Width="*"/>
+										<DataGridTextColumn Header="ECTS"        Binding="{Binding Ects}"        Width="80"/>
+										<DataGridTextColumn Header="Semestr"     Binding="{Binding Semester}"    Width="120"/>
+										<DataGridTextColumn Header="Prowadzący"  Binding="{Binding TeacherName}" Width="*"/>
+									</DataGrid.Columns>
+								</DataGrid>
+
+								<StackPanel Grid.Row="3" Orientation="Horizontal"
+                                            HorizontalAlignment="Right" Margin="0,12,0,0">
+									<Button x:Name="detailsCourseButton" Content="Szczegóły"
+                                            Style="{StaticResource SecondaryButtonStyle}"
+                                            Click="DetailsCourseButton_Click"/>
+									<Button x:Name="editCourseButton" Content="Edytuj"
+                                            Style="{StaticResource PrimaryButtonStyle}"
+                                            Click="EditCourseButton_Click"/>
+									<Button x:Name="deleteCourseButton" Content="Usuń"
+                                            Style="{StaticResource DangerButtonStyle}"
+                                            Click="DeleteCourseButton_Click"/>
+								</StackPanel>
+							</Grid>
+
+							<Grid x:Name="resultFormPanel" Visibility="Collapsed" Margin="10">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="Auto"/>
+								</Grid.RowDefinitions>
+
+								<TextBlock Grid.Row="0" Text="Nowy wynik"
+                                           FontSize="20" FontWeight="Bold" Foreground="#FF0047A1"
+                                           Margin="0,0,0,15"/>
+
+								<Grid Grid.Row="1" Margin="0,10,0,0">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="160"/>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="40"/>
+										<ColumnDefinition Width="140"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="50"/>
+										<RowDefinition Height="50"/>
+										<RowDefinition Height="Auto"/>
+									</Grid.RowDefinitions>
+
+									<TextBlock Grid.Row="0" Grid.Column="0" Text="Student:" Style="{StaticResource FormLabelStyle}"/>
+									<ComboBox  Grid.Row="0" Grid.Column="1" x:Name="studentResultComboBox" Style="{StaticResource FormComboBoxStyle}"/>
+									<TextBlock Grid.Row="0" Grid.Column="3" Text="Kurs:" Style="{StaticResource FormLabelStyle}"/>
+									<ComboBox  Grid.Row="0" Grid.Column="4" x:Name="courseResultComboBox" Style="{StaticResource FormComboBoxStyle}"/>
+
+									<TextBlock Grid.Row="1" Grid.Column="0" Text="Ocena:" Style="{StaticResource FormLabelStyle}"/>
+									<ComboBox  Grid.Row="1" Grid.Column="1" x:Name="gradeComboBox" Style="{StaticResource FormComboBoxStyle}">
+										<ComboBoxItem Content="2.0"/>
+										<ComboBoxItem Content="3.0"/>
+										<ComboBoxItem Content="3.5"/>
+										<ComboBoxItem Content="4.0"/>
+										<ComboBoxItem Content="4.5"/>
+										<ComboBoxItem Content="5.0"/>
+									</ComboBox>
+									<TextBlock Grid.Row="1" Grid.Column="3" Text="Data dodania:" Style="{StaticResource FormLabelStyle}"/>
+									<DatePicker Grid.Row="1" Grid.Column="4" x:Name="resultDatePicker" Style="{StaticResource FormDatePickerStyle}"/>
+
+									<TextBlock Grid.Row="2" Grid.ColumnSpan="5"
+                                               Text="Wybierz studenta i kurs z listy. Ocena musi być jedną z dopuszczalnych wartości (2.0 - 5.0)."
+                                               FontSize="12" Foreground="#FF6B7A99" FontStyle="Italic"
+                                               Margin="0,15,0,0" TextWrapping="Wrap"/>
+								</Grid>
+
+								<StackPanel Grid.Row="2" Orientation="Horizontal"
+                                            HorizontalAlignment="Right" Margin="0,20,0,0">
+									<Button x:Name="clearResultButton" Content="Wyczyść"
+                                            Style="{StaticResource SecondaryButtonStyle}"
+                                            Click="ClearResultButton_Click"/>
+									<Button x:Name="cancelResultButton" Content="Anuluj"
+                                            Style="{StaticResource SecondaryButtonStyle}"
+                                            Click="CancelResultButton_Click"/>
+									<Button x:Name="saveResultButton" Content="Zapisz"
+                                            Style="{StaticResource PrimaryButtonStyle}"
+                                            Click="SaveResultButton_Click"/>
+								</StackPanel>
+							</Grid>
+							
+							<Grid x:Name="resultsManagePanel" Visibility="Collapsed" Margin="10">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="Auto"/>
+								</Grid.RowDefinitions>
+
+								<TextBlock Grid.Row="0" Text="Zarządzanie wynikami"
+                                           FontSize="20" FontWeight="Bold" Foreground="#FF0047A1"
+                                           Margin="0,0,0,15"/>
+
+								<Grid Grid.Row="1" Margin="0,0,0,12">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="Auto"/>
+									</Grid.ColumnDefinitions>
+
+									<ComboBox Grid.Column="0" x:Name="studentFilterComboBox"
+                                              Style="{StaticResource FormComboBoxStyle}" Margin="0,0,8,0">
+										<ComboBoxItem Content="Wszyscy studenci" IsSelected="True"/>
+									</ComboBox>
+									<ComboBox Grid.Column="1" x:Name="courseFilterComboBox"
+                                              Style="{StaticResource FormComboBoxStyle}" Margin="0,0,8,0">
+										<ComboBoxItem Content="Wszystkie kursy" IsSelected="True"/>
+									</ComboBox>
+									<ComboBox Grid.Column="2" x:Name="groupResultFilterComboBox"
+                                              Style="{StaticResource FormComboBoxStyle}" Margin="0,0,8,0">
+										<ComboBoxItem Content="Wszystkie grupy" IsSelected="True"/>
+										<ComboBoxItem Content="INF BSZ Lab 1"/>
+										<ComboBoxItem Content="INF BSZ Lab 2"/>
+										<ComboBoxItem Content="INF BSZ Lab 3"/>
+										<ComboBoxItem Content="INF BSZ Lab 4"/>
+									</ComboBox>
+									<Button Grid.Column="3" x:Name="refreshResultButton" Content="Odśwież"
+                                            Style="{StaticResource SecondaryButtonStyle}"
+                                            Click="RefreshResultButton_Click"/>
+								</Grid>
+
+								<DataGrid Grid.Row="2" x:Name="resultsDataGrid" Style="{StaticResource DefaultDataGridStyle}">
+									<DataGrid.Columns>
+										<DataGridTextColumn Header="ID"           Binding="{Binding ResultId}"    Width="60"/>
+										<DataGridTextColumn Header="Student"      Binding="{Binding StudentName}" Width="*"/>
+										<DataGridTextColumn Header="Kurs"         Binding="{Binding CourseName}"  Width="*"/>
+										<DataGridTextColumn Header="Ocena"        Binding="{Binding Grade}"       Width="80"/>
+										<DataGridTextColumn Header="Data dodania" Binding="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}" Width="140"/>
+									</DataGrid.Columns>
+								</DataGrid>
+
+								<StackPanel Grid.Row="3" Orientation="Horizontal"
+                                            HorizontalAlignment="Right" Margin="0,12,0,0">
+									<Button x:Name="editResultButton" Content="Edytuj"
+                                            Style="{StaticResource PrimaryButtonStyle}"
+                                            Click="EditResultButton_Click"/>
+									<Button x:Name="deleteResultButton" Content="Usuń"
+                                            Style="{StaticResource DangerButtonStyle}"
+                                            Click="DeleteResultButton_Click"/>
+								</StackPanel>
+							</Grid>
+
+						</Grid>
+					</Border>
+				</Grid>
+			</Border>
+
+			<Border Grid.Row="2" Background="#FF0047A1" CornerRadius="18" Padding="22">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="260"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+					<StackPanel>
+						<TextBlock Text="Liczba studentów" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0, 0, 0, 50"/>
+						<TextBlock Text="Mężczyźni: 0" Foreground="White" FontSize="12" FontWeight="Bold"/>
+						<TextBlock Text="Kobiety: 0" Foreground="White" FontSize="12" FontWeight="Bold"/>
+					</StackPanel>
+
+					<StackPanel Grid.Column="1">
+						<TextBlock Text="Grupa laboratoryjna" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+						<ComboBox x:Name="classComboBox" Height="34" FontSize="15" SelectedIndex="0">
+							<ComboBoxItem Content="LAB-1"/>
+							<ComboBoxItem Content="LAB-2"/>
+							<ComboBoxItem Content="LAB-3"/>
+							<ComboBoxItem Content="LAB-4"/>
+						</ComboBox>
+					</StackPanel>
+
+					<StackPanel Grid.Column="2" HorizontalAlignment="Right">
+						<TextBlock Text="Statystyki" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Right" Margin="0, 0, 0, 50"/>
+						<TextBlock Text="Mężczyźni: 0" Foreground="White" FontSize="12" FontWeight="Bold"/>
+						<TextBlock Text="Kobiety: 0" Foreground="White" FontSize="12" FontWeight="Bold"/>
+					</StackPanel>
+				</Grid>
+			</Border>
+		</Grid>
+	</Grid>
 </Window>

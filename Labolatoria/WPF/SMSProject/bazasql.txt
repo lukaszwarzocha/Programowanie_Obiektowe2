@@ -1,0 +1,48 @@
+CREATE TABLE Groups (
+    GroupId   INT           PRIMARY KEY IDENTITY(1,1),
+    GroupName NVARCHAR(50)  NOT NULL UNIQUE
+);
+GO
+
+CREATE TABLE Students (
+    StudentId   INT           PRIMARY KEY IDENTITY(1,1),
+    FirstName   NVARCHAR(50)  NOT NULL,
+    LastName    NVARCHAR(50)  NOT NULL,
+    AlbumNumber NVARCHAR(20)  NOT NULL UNIQUE,
+    Email       NVARCHAR(100) NOT NULL,
+    Gender      NCHAR(1)      NOT NULL CHECK (Gender IN ('M', 'K')),
+    GroupId     INT           NOT NULL,
+    CONSTRAINT FK_Students_Groups FOREIGN KEY (GroupId)
+        REFERENCES Groups(GroupId)
+);
+GO
+
+CREATE TABLE Courses (
+    CourseId    INT           PRIMARY KEY IDENTITY(1,1),
+    CourseName  NVARCHAR(100) NOT NULL,
+    Description NVARCHAR(255) NULL,
+    TeacherName NVARCHAR(100) NULL
+);
+GO
+
+CREATE TABLE Results (
+    ResultId  INT          PRIMARY KEY IDENTITY(1,1),
+    StudentId INT          NOT NULL,
+    CourseId  INT          NOT NULL,
+    Grade     DECIMAL(3,1) NOT NULL CHECK (Grade IN (2.0, 3.0, 3.5, 4.0, 4.5, 5.0)),
+    Date      DATETIME     NOT NULL DEFAULT GETDATE(),
+    CONSTRAINT FK_Results_Students FOREIGN KEY (StudentId)
+        REFERENCES Students(StudentId),
+    CONSTRAINT FK_Results_Courses FOREIGN KEY (CourseId)
+        REFERENCES Courses(CourseId)
+);
+GO
+
+CREATE TABLE Users (
+    UserId   INT           PRIMARY KEY IDENTITY(1,1),
+    Login    NVARCHAR(50)  NOT NULL UNIQUE,
+    Password NVARCHAR(255) NOT NULL,
+    Role     NVARCHAR(50)  NOT NULL DEFAULT 'User'
+        CHECK (Role IN ('Administrator', 'Prowadzący', 'User'))
+);
+GO
