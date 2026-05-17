@@ -257,26 +257,46 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1"
-                                    Background="White" Margin="0,0,0,10" Padding="15,10">
+                            Background="White" Margin="0,0,0,10" Padding="15,10">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Grid.Column="0">
-                                        <TextBlock Text="{Binding NazwaZabiegu}" FontWeight="Bold" FontSize="14"/>
+                                        <TextBlock FontWeight="Bold" FontSize="14">
+                                        <Run Text="{Binding NazwaZabiegu}"/>
+                                        <Run Text=" - "/>
+                                        <Run Text="{Binding ImiePupila}"/>
+                                        </TextBlock>
                                         <TextBlock Foreground="#FF9CA3AF">
-                                            <Run Text="{Binding DataRezerwacji, StringFormat=dd.MM.yyyy}"/>
-                                            <Run Text=" · "/>
-                                            <Run Text="{Binding GodzStart, StringFormat=hh\\:mm}"/>
-                                            <Run Text=" · "/>
-                                            <Run Text="{Binding ImieNazwiskoWeterynarza}"/>
+                                        <Run Text="{Binding DataRezerwacji, StringFormat=dd.MM.yyyy}"/>
+                                        <Run Text=" · "/>
+                                        <Run Text="{Binding Godzina_Start, StringFormat=hh\\:mm}"/>
+                                        <Run Text=" - "/>
+                                        <Run Text="{Binding Godzina_Koniec, StringFormat=hh\\:mm}"/>
+                                        <Run Text=" · "/>
+                                        <Run Text="{Binding ImieNazwiskoWeterynarza}"/>
                                         </TextBlock>
                                     </StackPanel>
                                     <Border Grid.Column="1" CornerRadius="12" Padding="10,4"
-                                            Background="#FFE6F4EA" VerticalAlignment="Center">
-                                        <TextBlock Text="{Binding Status}" Foreground="#FF2E7D32" FontWeight="Bold" FontSize="11"/>
+                                    Background="#FFE6F4EA" VerticalAlignment="Center" Margin="0,0,10,0">
+                                        <TextBlock Text="{Binding Status}" Foreground="#FF2E7D32"
+                                           FontWeight="Bold" FontSize="11"/>
                                     </Border>
+                                    <Button Grid.Column="2" Content="Anuluj" Padding="10,5"
+                                    Background="#FFFEE2E2" BorderThickness="0"
+                                    FontWeight="Bold" Foreground="#FFE53E3E"
+                                    Tag="{Binding IdRezerwacja}" Click="AnulujWizyte_Click">
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border CornerRadius="6" Background="{TemplateBinding Background}">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
                                 </Grid>
                             </Border>
                         </DataTemplate>

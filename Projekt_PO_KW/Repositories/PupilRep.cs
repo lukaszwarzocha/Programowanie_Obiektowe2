@@ -13,7 +13,7 @@ namespace Projekt_PO_KW.Repositories
             using var Conn = Database.GetConnection();
             Conn.Open();
 
-            var command = new SqlCommand("INSERT INTO Pupil (imie, gatunek, wiek, rasa) VALUES (@imie, @gatunek, @wiek, @rasa, @plec) SELECT SCOPE_IDENTITY();", Conn);
+            var command = new SqlCommand("INSERT INTO Pupil (imie, gatunek, wiek, rasa, plec) VALUES (@imie, @gatunek, @wiek, @rasa, @plec) SELECT SCOPE_IDENTITY();", Conn);
             command.Parameters.AddWithValue("@imie", pupil.Imie);
             command.Parameters.AddWithValue("@gatunek", pupil.Gatunek);
             command.Parameters.AddWithValue("@wiek", pupil.Wiek);

@@ -5,8 +5,138 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_PO_KW.Views"
         mc:Ignorable="d"
-        Title="RezerwacjaWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Nowa rezerwacja" Height="600" Width="800"
+        ResizeMode="NoResize">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer x:Name="Krok1" Grid.Row="0" VerticalScrollBarVisibility="Auto" Visibility="Visible">
+            <StackPanel Margin="40,30,40,20">
+                <TextBlock Text="Nowa rezerwacja" FontSize="18" FontWeight="Bold" Margin="0,0,0,5"/>
+                <TextBlock Text="Krok 1 z 3 - Wybierz pupila i zabieg" Foreground="#FF9CA3AF" Margin="0,0,0,25"/>
+
+                <TextBlock Text="Wybierz pupila" FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
+                <Border BorderBrush="#FFE5E7EB" 
+                        Background="#FFF9FAFB" Height="36" Margin="0,0,0,25">
+                    <ComboBox x:Name="WyborPupila" BorderThickness="0" Background="Transparent" Padding="0" DisplayMemberPath="Imie" Width="720"/>
+                </Border>
+
+                <TextBlock Text="Wybierz zabieg" FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
+                <ItemsControl x:Name="ListaZabiegow">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border x:Name="ZabiegBorder" CornerRadius="8" BorderBrush="#FFE5E7EB"
+                                    BorderThickness="2" Background="White"
+                                    Margin="0,0,0,10" Padding="15,12"
+                                    Cursor="Hand" MouseLeftButtonDown="WybierzZabieg">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="{Binding Nazwa}" FontWeight="Bold" FontSize="14"/>
+                                        <TextBlock Foreground="#FF9CA3AF" FontSize="12">
+                                            <Run Text="Czas trwania: "/>
+                                            <Run Text="{Binding CzasTrwaniaMin}"/>
+                                            <Run Text=" min"/>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <TextBlock Grid.Column="1" VerticalAlignment="Center"
+                                               FontWeight="Bold" FontSize="14" Foreground="#FFFB7185">
+                                        <Run Text="{Binding Cena, StringFormat={}{0:F2}}"/>
+                                        <Run Text=" zł"/>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="Krok2" Grid.Row="0" VerticalScrollBarVisibility="Auto" Visibility="Collapsed">
+            <StackPanel Margin="40,30,40,20">
+                <TextBlock Text="Nowa rezerwacja" FontSize="18" FontWeight="Bold" Margin="0,0,0,5"/>
+                <TextBlock Text="Krok 2 z 3 - Wybierz weterynarza" Foreground="#FF9CA3AF" Margin="0,0,0,25"/>
+
+                <TextBlock Text="Wybierz weterynarza" FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
+                <ItemsControl x:Name="ListaWeterynarzy">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="2"
+                                    Background="White" Margin="0,0,0,10" Padding="15,12"
+                                    Cursor="Hand" MouseLeftButtonDown="WybierzWeterynarza">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="0" Width="40" Height="40" CornerRadius="20"
+                                            Background="#FFFEE2E2" Margin="0,0,15,0">
+                                        <TextBlock Text="👤" FontSize="18"
+                                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                        <TextBlock FontWeight="Bold" FontSize="14">
+                                            <Run Text="Dr "/>
+                                            <Run Text="{Binding Imie}"/>
+                                            <Run Text=" "/>
+                                            <Run Text="{Binding Nazwisko}"/>
+                                        </TextBlock>
+                                        <TextBlock Text="{Binding Specjalizacja}" Foreground="#FF9CA3AF" FontSize="12"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="Krok3" Grid.Row="0" VerticalScrollBarVisibility="Auto" Visibility="Collapsed">
+            <StackPanel Margin="40,30,40,20">
+                <TextBlock Text="Nowa rezerwacja" FontSize="18" FontWeight="Bold" Margin="0,0,0,5"/>
+                <TextBlock Text="Krok 3 z 3 - Wybierz termin" Foreground="#FF9CA3AF" Margin="0,0,0,25"/>
+
+                <TextBlock Text="Wybierz termin" FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
+                <Grid x:Name="KalendarzGrid"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Przyciski nawigacji -->
+        <Grid Grid.Row="1" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="BtnWstecz" Grid.Column="0" Content="‹  Wstecz"
+                    Margin="20,15,10,15" Background="#FFF3F4F6" Foreground="#FF374151"
+                    BorderThickness="0" FontWeight="Bold" FontSize="14"
+                    Click="Wstecz_Click" Visibility="Collapsed">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="8" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="BtnDalej" Content="Dalej  ›"
+                    Margin="90,15,30,15" Background="#FFFB7185" Foreground="White"
+                    BorderThickness="0" FontWeight="Bold" FontSize="14"
+                    Click="Dalej_Click" Grid.Column="1">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="8" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
     </Grid>
 </Window>

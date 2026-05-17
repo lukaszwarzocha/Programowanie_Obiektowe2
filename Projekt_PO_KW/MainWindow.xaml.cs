@@ -243,8 +243,7 @@ namespace Projekt_PO_KW
         private void DodajPupila_Click(object sender, RoutedEventArgs e)
         {
             new Views.DodajPupilaWindow().ShowDialog();
-            if (PanelMojePupile.Visibility == Visibility.Visible)
-                WczytajPupile();
+            if (PanelMojePupile.Visibility == Visibility.Visible) WczytajPupile();
         }
 
         private void ZarezerwujWizyte_Click(object sender, RoutedEventArgs e)
@@ -252,5 +251,24 @@ namespace Projekt_PO_KW
             new Views.RezerwacjaWindow().ShowDialog();
         }
 
+        private void AnulujWizyte_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as System.Windows.Controls.Button;
+            var idRezerwacja = (int)button!.Tag;
+
+            var potwierdzenie = System.Windows.MessageBox.Show("Czy na pewno chcesz anulować tę wizytę?", "Potwierdzenie", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (potwierdzenie == MessageBoxResult.No) return;
+
+            try
+            {
+                var rep = new Repositories.RezerwacjaRep();
+                rep.Anuluj(idRezerwacja);
+                WczytajWizyty();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Błąd podczas anulowania wizyty: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

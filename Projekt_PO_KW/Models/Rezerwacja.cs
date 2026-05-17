@@ -15,5 +15,8 @@ namespace Projekt_PO_KW.Models
         public TimeSpan Godzina_Start { get; set; }
         public TimeSpan Godzina_Koniec { get; set; }
         public string Status { get; set; } = "Zarezerwowany";
+        public string? NazwaZabiegu { get; set; }
+        public string? ImieNazwiskoWeterynarza { get; set; }
+        public string? ImiePupila { get; set; }
     }
 }
