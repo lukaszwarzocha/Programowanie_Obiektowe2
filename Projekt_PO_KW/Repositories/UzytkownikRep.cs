@@ -30,7 +30,8 @@ namespace Projekt_PO_KW.Repositories
                     Telefon = reader["telefon"].ToString()!,
                     Adres = reader["adres"].ToString()!,
                     Haslo = reader["haslo"].ToString()!,
-                    Rola = reader["rola"].ToString()!
+                    Rola = reader["rola"].ToString()!,
+                    Saldo = (int)reader["Saldo"]!
                 };
             }
 
@@ -90,6 +91,28 @@ namespace Projekt_PO_KW.Repositories
             command.Parameters.AddWithValue("@haslo", user.Haslo);
             command.Parameters.AddWithValue("@id", user.IdUzytkownik);
 
+            command.ExecuteNonQuery();
+        }
+
+        public void DoladujSaldo(int idUzytkownik, int kwota)
+        {
+            using var Conn = Database.GetConnection();
+            Conn.Open();
+
+            var command = new SqlCommand("UPDATE Uzytkownik SET Saldo = Saldo + @kwota WHERE id_uzytkownik = @id", Conn);
+            command.Parameters.AddWithValue("@kwota", kwota);
+            command.Parameters.AddWithValue("@id", idUzytkownik);
+            command.ExecuteNonQuery();
+        }
+
+        public void PobierzSaldo(int idUzytkownik, int kwota)
+        {
+            using var Conn = Database.GetConnection();
+            Conn.Open();
+
+            var command = new SqlCommand("UPDATE Uzytkownik SET Saldo = Saldo - @kwota WHERE id_uzytkownik = @id", Conn);
+            command.Parameters.AddWithValue("@kwota", kwota);
+            command.Parameters.AddWithValue("@id", idUzytkownik);
             command.ExecuteNonQuery();
         }
     }

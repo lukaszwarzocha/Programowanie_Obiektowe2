@@ -89,8 +89,18 @@ namespace Projekt_PO_KW.Views
                     System.Windows.MessageBox.Show("Musisz wybrać zabieg!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
-                _wybranyPupil = WyborPupila.SelectedItem as Models.Pupil;
 
+                var saldo = Helpers.SessionHelper.ZalogowanyUzytkownik!.Saldo;
+                if (saldo < (int)_wybranyZabieg.Cena)
+                {
+                    System.Windows.MessageBox.Show(
+                        $"Niewystarczające środki na koncie!\n" +
+                        $"Koszt zabiegu: {_wybranyZabieg.Cena:F2} zł\n" +
+                        $"Twoje saldo: {saldo} zł", "Brak środków", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                _wybranyPupil = WyborPupila.SelectedItem as Models.Pupil;
                 var wetRep = new WeterynarzRep();
                 ListaWeterynarzy.ItemsSource = wetRep.GetByZabieg(_wybranyZabieg.IdZabieg);
 
@@ -299,7 +309,14 @@ namespace Projekt_PO_KW.Views
                 var rep = new RezerwacjaRep();
                 rep.Dodaj(rezerwacja);
 
-                System.Windows.MessageBox.Show("Rezerwacja została zapisana!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+                int kosztZabiegu = (int)_wybranyZabieg.Cena;
+                var uzytkownikRep = new UzytkownikRep();
+                uzytkownikRep.PobierzSaldo(Helpers.SessionHelper.ZalogowanyUzytkownik.IdUzytkownik, kosztZabiegu);
+
+                Helpers.SessionHelper.ZalogowanyUzytkownik.Saldo -= kosztZabiegu;
+
+                System.Windows.MessageBox.Show($"Rezerwacja zapisana!\n Pobrano {kosztZabiegu} zł z konta.\n" +
+                    $"Pozostałe saldo: {Helpers.SessionHelper.ZalogowanyUzytkownik.Saldo} zł", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Close();
             }
             catch (Exception ex)

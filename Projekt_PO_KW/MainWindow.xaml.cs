@@ -23,6 +23,7 @@ namespace Projekt_PO_KW
         {
             InitializeComponent();
             EtykietaUzytkownik.Content = $"Witaj, {Helpers.SessionHelper.ZalogowanyUzytkownik?.Imie}!";
+            EtykietaSaldoUzytkownik.Content = $"Saldo: {Helpers.SessionHelper.ZalogowanyUzytkownik?.Saldo}";
             WczytajDane();
         }
 
@@ -151,7 +152,9 @@ namespace Projekt_PO_KW
             PanelMojeKonto.Visibility = Visibility.Collapsed;
             PanelMojePupile.Visibility = Visibility.Collapsed;
             PanelMojeWizyty.Visibility = Visibility.Collapsed;
+            PanelDoladujSrodki.Visibility = Visibility.Collapsed;
 
+            BtnDoladujSrodki.Tag = null;
             BtnMojeKonto.Tag = null;
             BtnMojePupile.Tag = null;
             BtnMojeWizyty.Tag = null;
@@ -170,6 +173,10 @@ namespace Projekt_PO_KW
             {
                 PanelMojeWizyty.Visibility = Visibility.Visible;
                 WczytajWizyty();
+            }
+            else if (przycisk == BtnDoladujSrodki)
+            {
+                PanelDoladujSrodki.Visibility = Visibility.Visible;
             }
         }
 
@@ -249,6 +256,7 @@ namespace Projekt_PO_KW
         private void ZarezerwujWizyte_Click(object sender, RoutedEventArgs e)
         {
             new Views.RezerwacjaWindow().ShowDialog();
+            EtykietaSaldoUzytkownik.Content = $"Saldo: {Helpers.SessionHelper.ZalogowanyUzytkownik?.Saldo} zł";
         }
 
         private void AnulujWizyte_Click(object sender, RoutedEventArgs e)
@@ -268,6 +276,36 @@ namespace Projekt_PO_KW
             catch (Exception ex)
             {
                 System.Windows.MessageBox.Show($"Błąd podczas anulowania wizyty: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void WplacSrodki_Click(object sender, RoutedEventArgs e)
+        {
+            var kwotaT = PoleKwota.Text;
+
+            if (!int.TryParse(kwotaT, out int kwota) || kwota <= 0)
+            {
+                System.Windows.MessageBox.Show("Musisz podać prawidłową kwotę!","Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            var potwierdzenie = System.Windows.MessageBox.Show($"Czy na pewno chcesz wpłacić {kwota} zł?", "Potwierdzenie", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (potwierdzenie == MessageBoxResult.No) return;
+
+            try
+            {
+                var rep = new Repositories.UzytkownikRep();
+                rep.DoladujSaldo(Helpers.SessionHelper.ZalogowanyUzytkownik!.IdUzytkownik, kwota);
+
+                Helpers.SessionHelper.ZalogowanyUzytkownik.Saldo += kwota;
+                EtykietaSaldoUzytkownik.Content = $"Saldo: {Helpers.SessionHelper.ZalogowanyUzytkownik.Saldo} zł";
+                PoleKwota.Clear();
+
+                System.Windows.MessageBox.Show($"Wpłata kwoty {kwota} zł przebiegła pomyślnie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Błąd: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

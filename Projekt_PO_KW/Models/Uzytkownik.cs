@@ -11,6 +11,7 @@ namespace Projekt_PO_KW.Models
         public string Imie { get; set; } = string.Empty;
         public string Nazwisko { get; set; } = string.Empty;
         public string? Adres { get; set; }
+        public int Saldo { get; set; }
         public string Email { get; set; } = string.Empty;
         public string Haslo { get; set; } = string.Empty;
         public string Telefon { get; set; } = string.Empty;
