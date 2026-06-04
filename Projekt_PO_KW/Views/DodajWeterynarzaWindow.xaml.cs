@@ -36,6 +36,15 @@ namespace Projekt_PO_KW.Views
                     Haslo = haslo
                 });
 
+                int idWet = rep.GetIdByEmail(email);
+
+                var dostRep = new Repositories.DostepnoscRep();
+                ZapiszDostepnosc(dostRep, idWet, 1, PonOd.Text, PonDo.Text);
+                ZapiszDostepnosc(dostRep, idWet, 2, WtOd.Text, WtDo.Text);
+                ZapiszDostepnosc(dostRep, idWet, 3, SrOd.Text, SrDo.Text);
+                ZapiszDostepnosc(dostRep, idWet, 4, CzwOd.Text, CzwDo.Text);
+                ZapiszDostepnosc(dostRep, idWet, 5, PtOd.Text, PtDo.Text);
+
                 System.Windows.MessageBox.Show("Weterynarz został dodany pomyślnie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Close();
             }
@@ -43,6 +52,21 @@ namespace Projekt_PO_KW.Views
             {
                 System.Windows.MessageBox.Show($"Błąd: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void ZapiszDostepnosc(Repositories.DostepnoscRep rep, int idWet, int dzien, string od, string doo)
+        {
+            if (string.IsNullOrWhiteSpace(od) || string.IsNullOrWhiteSpace(doo)) return;
+
+            if (!TimeSpan.TryParse(od, out var gOd) || !TimeSpan.TryParse(doo, out var gDo) || gOd >= gDo) return;
+
+            rep.Dodaj(new Models.Dostepnosc
+            {
+                IdWeterynarz = idWet,
+                DzienTygodnia = dzien,
+                GodzStart = gOd,
+                GodzKoniec = gDo
+            });
         }
     }
 }

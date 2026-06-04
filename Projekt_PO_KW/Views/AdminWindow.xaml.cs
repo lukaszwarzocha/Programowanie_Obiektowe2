@@ -249,5 +249,15 @@ namespace Projekt_PO_KW.Views
                 System.Windows.MessageBox.Show($"Błąd usuwania: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void ZabiegiWeterynarza_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as System.Windows.Controls.Button;
+            var id = (int)button!.Tag;
+
+            var weterynarz = (ListaWeterynarzy.ItemsSource as List<Models.Weterynarz>) ?.FirstOrDefault(w => w.IdWeterynarz == id);
+
+            new ZabiegiWeterynarzaWindow(id, weterynarz?.ImieNazwisko ?? "").ShowDialog();
+        }
     }
 }

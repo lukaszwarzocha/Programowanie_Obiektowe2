@@ -77,8 +77,8 @@
                        HorizontalAlignment="Left" VerticalAlignment="Center"
                        Margin="20,0,0,0" Foreground="#FFFB7185" FontSize="18" FontWeight="Bold"/>
                 <Label x:Name="EtykietaAdmin" Content=""
-                       HorizontalAlignment="Left" VerticalAlignment="Center"
-                       Margin="728,0,0,0" FontWeight="Bold" Width="154"/>
+                       HorizontalAlignment="Right" VerticalAlignment="Center"
+                       Margin="0,0,120,0" FontWeight="Bold"/>
                 <Button Content="Wyloguj" HorizontalAlignment="Right" VerticalAlignment="Center"
                         Margin="0,0,20,0" Background="#FFFB7185" Foreground="White"
                         BorderThickness="0" Padding="14,7" Click="Wyloguj_Click"
@@ -113,7 +113,7 @@
                               VerticalScrollBarVisibility="Auto" Visibility="Visible">
                     <StackPanel Margin="20">
                         <Grid Margin="0,0,0,15">
-                            <Button x:Name="BtnDodajWeterynarza" Content="Dodaj weterynarza"
+                            <Button x:Name="BtnDodajWeterynarza" Content="+ Dodaj weterynarza"
                                     HorizontalAlignment="Right" Width="170" Height="36"
                                     Background="#FFFB7185" Foreground="White" Padding="12,8"
                                     Style="{StaticResource ActionBtn}" Click="DodajWeterynarza_Click"/>
@@ -125,14 +125,16 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="2*"/>
-                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="110"/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="0" Text="Imię"          Style="{StaticResource HeaderText}"/>
                                 <TextBlock Grid.Column="1" Text="Nazwisko"      Style="{StaticResource HeaderText}"/>
                                 <TextBlock Grid.Column="2" Text="Specjalizacja" Style="{StaticResource HeaderText}"/>
                                 <TextBlock Grid.Column="3" Text="Email"         Style="{StaticResource HeaderText}"/>
-                                <TextBlock Grid.Column="4" Text="Akcje"         Style="{StaticResource HeaderText}" HorizontalAlignment="Center"/>
+                                <TextBlock Grid.Column="4" Text="Telefon"       Style="{StaticResource HeaderText}"/>
+                                <TextBlock Grid.Column="5" Text="Akcje"         Style="{StaticResource HeaderText}" HorizontalAlignment="Center"/>
                             </Grid>
                         </Border>
 
@@ -145,17 +147,26 @@
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="2*"/>
-                                                <ColumnDefinition Width="80"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="110"/>
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Grid.Column="0" Text="{Binding Imie}"          Style="{StaticResource CellText}"/>
                                             <TextBlock Grid.Column="1" Text="{Binding Nazwisko}"      Style="{StaticResource CellText}"/>
                                             <TextBlock Grid.Column="2" Text="{Binding Specjalizacja}" Style="{StaticResource CellText}"/>
                                             <TextBlock Grid.Column="3" Text="{Binding Email}"         Style="{StaticResource CellText}"/>
-                                            <Button Grid.Column="4" Content="X" Foreground="#FFE53E3E"
-                                                    Background="Transparent" BorderThickness="0"
-                                                    FontSize="16" Cursor="Hand" HorizontalAlignment="Center"
-                                                    Tag="{Binding IdWeterynarz}" Click="UsunWeterynarza_Click"/>
+                                            <TextBlock Grid.Column="4" Text="{Binding Telefon}"       Style="{StaticResource CellText}"/>
+                                            <StackPanel Grid.Column="5" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Button Content="+" Foreground="#FFFB7185"
+                                                        Background="Transparent" BorderThickness="0"
+                                                        FontSize="18" FontWeight="Bold" Cursor="Hand"
+                                                        Tag="{Binding IdWeterynarz}" Click="ZabiegiWeterynarza_Click"
+                                                        ToolTip="Zarządzaj zabiegami"/>
+                                                <Button Content="X" Foreground="#FFE53E3E"
+                                                        Background="Transparent" BorderThickness="0"
+                                                        FontSize="16" Cursor="Hand"
+                                                        Tag="{Binding IdWeterynarz}" Click="UsunWeterynarza_Click"/>
+                                            </StackPanel>
                                         </Grid>
                                     </Border>
                                 </DataTemplate>
@@ -168,7 +179,7 @@
                               VerticalScrollBarVisibility="Auto" Visibility="Collapsed">
                     <StackPanel Margin="20">
                         <Grid Margin="0,0,0,15">
-                            <Button Content="Dodaj zabieg"
+                            <Button Content="+ Dodaj zabieg"
                                     HorizontalAlignment="Right" Width="140" Height="36"
                                     Background="#FFFB7185" Foreground="White" Padding="12,8"
                                     Style="{StaticResource ActionBtn}" Click="DodajZabieg_Click"/>
@@ -228,18 +239,22 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,15,20,10">
-                        <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" Height="34" Margin="0,0,10,0">
+                        <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1"
+                                Background="#FFF9FAFB" Height="34" Margin="0,0,10,0">
                             <DatePicker x:Name="FiltrData" BorderThickness="0" Background="Transparent"
-                             Width="150" SelectedDateChanged="Filtry_Changed"/>
+                                        Width="150" SelectedDateChanged="Filtry_Changed"/>
                         </Border>
-                        <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" Height="34" Margin="0,0,10,0">
+                        <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1"
+                                Background="#FFF9FAFB" Height="34" Margin="0,0,10,0">
                             <ComboBox x:Name="FiltrWeterynarz" BorderThickness="0" Background="Transparent"
-                             Width="180" Padding="8,0" VerticalContentAlignment="Center"
-                             SelectionChanged="Filtry_Changed" DisplayMemberPath="ImieNazwisko"/>
+                                      Width="180" Padding="8,0" VerticalContentAlignment="Center"
+                                      SelectionChanged="Filtry_Changed" DisplayMemberPath="ImieNazwisko"/>
                         </Border>
-                        <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" Height="34" Margin="0,0,10,0">
-                            <ComboBox x:Name="FiltrStatus" BorderThickness="0" Background="Transparent" Width="160" Padding="8,0" VerticalContentAlignment="Center"
-                             SelectionChanged="Filtry_Changed">
+                        <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1"
+                                Background="#FFF9FAFB" Height="34" Margin="0,0,10,0">
+                            <ComboBox x:Name="FiltrStatus" BorderThickness="0" Background="Transparent"
+                                      Width="160" Padding="8,0" VerticalContentAlignment="Center"
+                                      SelectionChanged="Filtry_Changed">
                                 <ComboBoxItem Content="Wszystkie statusy" IsSelected="True"/>
                                 <ComboBoxItem Content="Zarezerwowany"/>
                                 <ComboBoxItem Content="Zrealizowany"/>
@@ -247,8 +262,8 @@
                             </ComboBox>
                         </Border>
                         <Button Content="Wyczyść filtry" Margin="10,0,0,0" Height="34"
-            Padding="12,0" Background="#FFE5E7EB" Foreground="#FF374151"
-            Style="{StaticResource ActionBtn}" Click="WyczyscFiltry_Click"/>
+                                Padding="12,0" Background="#FFE5E7EB" Foreground="#FF374151"
+                                Style="{StaticResource ActionBtn}" Click="WyczyscFiltry_Click"/>
                     </StackPanel>
 
                     <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
@@ -301,10 +316,10 @@
                                                 <TextBlock Grid.Column="5" Style="{StaticResource CellText}"
                                                            Text="{Binding ImieNazwiskoUzytkownika}"/>
                                                 <ComboBox Grid.Column="6" Margin="8,6"
-                                                SelectedValue="{Binding Status, Mode=TwoWay}"
-                                                SelectedValuePath="Content"
-                                                Tag="{Binding IdRezerwacja}"
-                                                SelectionChanged="StatusRezerwacji_Changed">
+                                                          SelectedValue="{Binding Status, Mode=TwoWay}"
+                                                          SelectedValuePath="Content"
+                                                          Tag="{Binding IdRezerwacja}"
+                                                          SelectionChanged="StatusRezerwacji_Changed">
                                                     <ComboBoxItem Content="Zarezerwowany"/>
                                                     <ComboBoxItem Content="Zrealizowany"/>
                                                     <ComboBoxItem Content="Anulowany"/>
@@ -353,10 +368,10 @@
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="80"/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" Text="{Binding Imie}"    Style="{StaticResource CellText}"/>
+                                            <TextBlock Grid.Column="0" Text="{Binding Imie}"     Style="{StaticResource CellText}"/>
                                             <TextBlock Grid.Column="1" Text="{Binding Nazwisko}" Style="{StaticResource CellText}"/>
-                                            <TextBlock Grid.Column="2" Text="{Binding Email}"   Style="{StaticResource CellText}"/>
-                                            <TextBlock Grid.Column="3" Text="{Binding Telefon}" Style="{StaticResource CellText}"/>
+                                            <TextBlock Grid.Column="2" Text="{Binding Email}"    Style="{StaticResource CellText}"/>
+                                            <TextBlock Grid.Column="3" Text="{Binding Telefon}"  Style="{StaticResource CellText}"/>
                                             <TextBlock Grid.Column="4" Style="{StaticResource CellText}">
                                                 <Run Text="{Binding Saldo}"/>
                                                 <Run Text=" zł"/>

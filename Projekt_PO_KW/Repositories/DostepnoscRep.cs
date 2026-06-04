@@ -30,5 +30,18 @@ namespace Projekt_PO_KW.Repositories
 
             return lista;
         }
+
+        public void Dodaj(Models.Dostepnosc d)
+        {
+            using var Conn = Database.GetConnection();
+            Conn.Open();
+
+            var command = new SqlCommand("INSERT INTO Dostepnosc (id_weterynarz, dzien_tygodnia, godzina_start, godzina_koniec) VALUES (@id, @dzien, @od, @do)", Conn);
+            command.Parameters.AddWithValue("@id", d.IdWeterynarz);
+            command.Parameters.AddWithValue("@dzien", d.DzienTygodnia);
+            command.Parameters.AddWithValue("@od", d.GodzStart);
+            command.Parameters.AddWithValue("@do", d.GodzKoniec);
+            command.ExecuteNonQuery();
+        }
     }
 }

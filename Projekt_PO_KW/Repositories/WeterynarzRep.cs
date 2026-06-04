@@ -86,5 +86,15 @@ namespace Projekt_PO_KW.Repositories
             command.Parameters.AddWithValue("@haslo", w.Haslo);
             command.ExecuteNonQuery();
         }
+
+        public int GetIdByEmail(string email)
+        {
+            using var Conn = Database.GetConnection();
+            Conn.Open();
+
+            var command = new SqlCommand("SELECT id_weterynarz FROM Weterynarz WHERE email = @email", Conn);
+            command.Parameters.AddWithValue("@email", email);
+            return (int)command.ExecuteScalar();
+        }
     }
 }

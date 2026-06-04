@@ -1,0 +1,35 @@
+﻿<Window x:Class="Projekt_PO_KW.Views.ZabiegiWeterynarzaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Zabiegi weterynarza" Height="440" Width="350" ResizeMode="NoResize">
+    <Grid Background="White">
+        <Border Margin="20">
+            <StackPanel>
+                <TextBlock x:Name="EtykietaWet" FontSize="16" FontWeight="Bold" Margin="0,0,0,0"/>
+                <TextBlock Text="Zaznacz zabiegi które wykonuje:" Foreground="#FF9CA3AF" Margin="0,0,0,15"/>
+
+                <ListBox x:Name="ListaZabiegow" SelectionMode="Multiple"
+                         BorderThickness="1" BorderBrush="#FFE5E7EB"
+                         Height="250" Margin="0,0,0,15">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox Content="{Binding Nazwa}" IsChecked="{Binding Przypisany}"
+                                      Margin="5,3"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <Button Content="Zapisz" Height="36" Click="Zapisz_Click"
+                        Background="#FFFB7185" Foreground="White" BorderThickness="0" FontWeight="Bold">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="8" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
