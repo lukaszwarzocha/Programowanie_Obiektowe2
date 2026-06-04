@@ -41,6 +41,8 @@ namespace Projekt_PO_KW.Views
                 var rep = new UzytkownikRep();
                 var uzytkownik = rep.GetUser(email, haslo);
 
+                Helpers.SessionHelper.ZalogowanyUzytkownik = uzytkownik; 
+
                 if (uzytkownik == null)
                 {
                     System.Windows.MessageBox.Show("Nieprawidłowy login lub hasło!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -48,11 +50,13 @@ namespace Projekt_PO_KW.Views
                 }
 
                 if (uzytkownik.Rola == "Administrator")
+                {
                     new AdminWindow().Show();
+                }
                 else
-                    Helpers.SessionHelper.ZalogowanyUzytkownik = uzytkownik;
+                {
                     new MainWindow().Show();
-
+                }
                 this.Close();
             }
             catch (Exception ex)

@@ -5,8 +5,375 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_PO_KW.Views"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Panel Admina" Height="600" Width="1000">
+
+    <Window.Resources>
+        <Style x:Key="TabBtn" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#FF6B7280"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="TabBorder" Background="{TemplateBinding Background}"
+                                BorderThickness="0,0,0,3" BorderBrush="Transparent">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" Margin="20,14"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="active">
+                                <Setter TargetName="TabBorder" Property="Background" Value="#FFFFF1F2"/>
+                                <Setter TargetName="TabBorder" Property="BorderBrush" Value="#FFFB7185"/>
+                                <Setter Property="Foreground" Value="#FFFB7185"/>
+                            </DataTrigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#FFFB7185"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ActionBtn" TargetType="Button">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="8" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="HeaderText" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#FF374151"/>
+            <Setter Property="Padding" Value="12,10"/>
+        </Style>
+
+        <Style x:Key="CellText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FF374151"/>
+            <Setter Property="Padding" Value="12,12"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FFEFE8E8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="White">
+            <Grid>
+                <Label Content="Klinika Weterynaryjna -- Panel Admina"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Margin="20,0,0,0" Foreground="#FFFB7185" FontSize="18" FontWeight="Bold"/>
+                <Label x:Name="EtykietaAdmin" Content=""
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Margin="728,0,0,0" FontWeight="Bold" Width="154"/>
+                <Button Content="Wyloguj" HorizontalAlignment="Right" VerticalAlignment="Center"
+                        Margin="0,0,20,0" Background="#FFFB7185" Foreground="White"
+                        BorderThickness="0" Padding="14,7" Click="Wyloguj_Click"
+                        Style="{StaticResource ActionBtn}"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Background="White" Margin="20" CornerRadius="12">
+            <Border.Effect>
+                <DropShadowEffect Color="#FFCCCCCC" BlurRadius="12" ShadowDepth="0" Opacity="0.4"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="#FFE5E7EB">
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="BtnZakladkaWeterynarze" Content="Weterynarze"
+                                Tag="active" Style="{StaticResource TabBtn}" Click="Zakladka_Click"/>
+                        <Button x:Name="BtnZakladkaZabiegi" Content="Zabiegi"
+                                Style="{StaticResource TabBtn}" Click="Zakladka_Click"/>
+                        <Button x:Name="BtnZakladkaRezerwacje" Content="Rezerwacje"
+                                Style="{StaticResource TabBtn}" Click="Zakladka_Click"/>
+                        <Button x:Name="BtnZakladkaUzytkownicy" Content="Użytkownicy"
+                                Style="{StaticResource TabBtn}" Click="Zakladka_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <ScrollViewer x:Name="PanelWeterynarze" Grid.Row="1"
+                              VerticalScrollBarVisibility="Auto" Visibility="Visible">
+                    <StackPanel Margin="20">
+                        <Grid Margin="0,0,0,15">
+                            <Button x:Name="BtnDodajWeterynarza" Content="Dodaj weterynarza"
+                                    HorizontalAlignment="Right" Width="170" Height="36"
+                                    Background="#FFFB7185" Foreground="White" Padding="12,8"
+                                    Style="{StaticResource ActionBtn}" Click="DodajWeterynarza_Click"/>
+                        </Grid>
+
+                        <Border Background="#FFF9FAFB" CornerRadius="8,8,0,0" BorderBrush="#FFE5E7EB" BorderThickness="1,1,1,0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="80"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Imię"          Style="{StaticResource HeaderText}"/>
+                                <TextBlock Grid.Column="1" Text="Nazwisko"      Style="{StaticResource HeaderText}"/>
+                                <TextBlock Grid.Column="2" Text="Specjalizacja" Style="{StaticResource HeaderText}"/>
+                                <TextBlock Grid.Column="3" Text="Email"         Style="{StaticResource HeaderText}"/>
+                                <TextBlock Grid.Column="4" Text="Akcje"         Style="{StaticResource HeaderText}" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+
+                        <ItemsControl x:Name="ListaWeterynarzy">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="#FFE5E7EB" BorderThickness="1,0,1,1">
+                                        <Grid Background="White">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="80"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{Binding Imie}"          Style="{StaticResource CellText}"/>
+                                            <TextBlock Grid.Column="1" Text="{Binding Nazwisko}"      Style="{StaticResource CellText}"/>
+                                            <TextBlock Grid.Column="2" Text="{Binding Specjalizacja}" Style="{StaticResource CellText}"/>
+                                            <TextBlock Grid.Column="3" Text="{Binding Email}"         Style="{StaticResource CellText}"/>
+                                            <Button Grid.Column="4" Content="X" Foreground="#FFE53E3E"
+                                                    Background="Transparent" BorderThickness="0"
+                                                    FontSize="16" Cursor="Hand" HorizontalAlignment="Center"
+                                                    Tag="{Binding IdWeterynarz}" Click="UsunWeterynarza_Click"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </ScrollViewer>
+
+                <ScrollViewer x:Name="PanelZabiegi" Grid.Row="1"
+                              VerticalScrollBarVisibility="Auto" Visibility="Collapsed">
+                    <StackPanel Margin="20">
+                        <Grid Margin="0,0,0,15">
+                            <Button Content="Dodaj zabieg"
+                                    HorizontalAlignment="Right" Width="140" Height="36"
+                                    Background="#FFFB7185" Foreground="White" Padding="12,8"
+                                    Style="{StaticResource ActionBtn}" Click="DodajZabieg_Click"/>
+                        </Grid>
+
+                        <Border Background="#FFF9FAFB" CornerRadius="8,8,0,0" BorderBrush="#FFE5E7EB" BorderThickness="1,1,1,0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="80"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Nazwa"        Style="{StaticResource HeaderText}"/>
+                                <TextBlock Grid.Column="1" Text="Czas trwania" Style="{StaticResource HeaderText}"/>
+                                <TextBlock Grid.Column="2" Text="Cena"         Style="{StaticResource HeaderText}"/>
+                                <TextBlock Grid.Column="3" Text="Akcje"        Style="{StaticResource HeaderText}" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+
+                        <ItemsControl x:Name="ListaZabiegow">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="#FFE5E7EB" BorderThickness="1,0,1,1">
+                                        <Grid Background="White">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="80"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{Binding Nazwa}" Style="{StaticResource CellText}"/>
+                                            <TextBlock Grid.Column="1" Style="{StaticResource CellText}">
+                                                <Run Text="{Binding CzasTrwaniaMin}"/>
+                                                <Run Text=" min"/>
+                                            </TextBlock>
+                                            <TextBlock Grid.Column="2" Style="{StaticResource CellText}">
+                                                <Run Text="{Binding Cena, StringFormat={}{0:F2}}"/>
+                                                <Run Text=" zł"/>
+                                            </TextBlock>
+                                            <Button Grid.Column="3" Content="X" Foreground="#FFE53E3E"
+                                                    Background="Transparent" BorderThickness="0"
+                                                    FontSize="16" Cursor="Hand" HorizontalAlignment="Center"
+                                                    Tag="{Binding IdZabieg}" Click="UsunZabieg_Click"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </ScrollViewer>
+
+                <Grid x:Name="PanelRezerwacje" Grid.Row="1" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,15,20,10">
+                        <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" Height="34" Margin="0,0,10,0">
+                            <DatePicker x:Name="FiltrData" BorderThickness="0" Background="Transparent"
+                             Width="150" SelectedDateChanged="Filtry_Changed"/>
+                        </Border>
+                        <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" Height="34" Margin="0,0,10,0">
+                            <ComboBox x:Name="FiltrWeterynarz" BorderThickness="0" Background="Transparent"
+                             Width="180" Padding="8,0" VerticalContentAlignment="Center"
+                             SelectionChanged="Filtry_Changed" DisplayMemberPath="ImieNazwisko"/>
+                        </Border>
+                        <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1" Background="#FFF9FAFB" Height="34" Margin="0,0,10,0">
+                            <ComboBox x:Name="FiltrStatus" BorderThickness="0" Background="Transparent" Width="160" Padding="8,0" VerticalContentAlignment="Center"
+                             SelectionChanged="Filtry_Changed">
+                                <ComboBoxItem Content="Wszystkie statusy" IsSelected="True"/>
+                                <ComboBoxItem Content="Zarezerwowany"/>
+                                <ComboBoxItem Content="Zrealizowany"/>
+                                <ComboBoxItem Content="Anulowany"/>
+                            </ComboBox>
+                        </Border>
+                        <Button Content="Wyczyść filtry" Margin="10,0,0,0" Height="34"
+            Padding="12,0" Background="#FFE5E7EB" Foreground="#FF374151"
+            Style="{StaticResource ActionBtn}" Click="WyczyscFiltry_Click"/>
+                    </StackPanel>
+
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
+                        <StackPanel>
+                            <Border Background="#FFF9FAFB" CornerRadius="8,8,0,0" BorderBrush="#FFE5E7EB" BorderThickness="1,1,1,0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="130"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Data"       Style="{StaticResource HeaderText}"/>
+                                    <TextBlock Grid.Column="1" Text="Godzina"    Style="{StaticResource HeaderText}"/>
+                                    <TextBlock Grid.Column="2" Text="Weterynarz" Style="{StaticResource HeaderText}"/>
+                                    <TextBlock Grid.Column="3" Text="Pupil"      Style="{StaticResource HeaderText}"/>
+                                    <TextBlock Grid.Column="4" Text="Zabieg"     Style="{StaticResource HeaderText}"/>
+                                    <TextBlock Grid.Column="5" Text="Właściciel" Style="{StaticResource HeaderText}"/>
+                                    <TextBlock Grid.Column="6" Text="Status"     Style="{StaticResource HeaderText}" HorizontalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+
+                            <ItemsControl x:Name="ListaRezerwacji">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="#FFE5E7EB" BorderThickness="1,0,1,1">
+                                            <Grid Background="White">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="130"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="0" Style="{StaticResource CellText}"
+                                                           Text="{Binding DataRezerwacji, StringFormat=dd.MM.yyyy}"/>
+                                                <TextBlock Grid.Column="1" Style="{StaticResource CellText}"
+                                                           Text="{Binding GodzStart, StringFormat=hh\\:mm}"/>
+                                                <TextBlock Grid.Column="2" Style="{StaticResource CellText}"
+                                                           Text="{Binding ImieNazwiskoWeterynarza}"/>
+                                                <TextBlock Grid.Column="3" Style="{StaticResource CellText}"
+                                                           Text="{Binding ImiePupila}"/>
+                                                <TextBlock Grid.Column="4" Style="{StaticResource CellText}"
+                                                           Text="{Binding NazwaZabiegu}"/>
+                                                <TextBlock Grid.Column="5" Style="{StaticResource CellText}"
+                                                           Text="{Binding ImieNazwiskoUzytkownika}"/>
+                                                <ComboBox Grid.Column="6" Margin="8,6"
+                                                SelectedValue="{Binding Status, Mode=TwoWay}"
+                                                SelectedValuePath="Content"
+                                                Tag="{Binding IdRezerwacja}"
+                                                SelectionChanged="StatusRezerwacji_Changed">
+                                                    <ComboBoxItem Content="Zarezerwowany"/>
+                                                    <ComboBoxItem Content="Zrealizowany"/>
+                                                    <ComboBoxItem Content="Anulowany"/>
+                                                </ComboBox>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+
+                <ScrollViewer x:Name="PanelUzytkownicy" Grid.Row="1"
+                              VerticalScrollBarVisibility="Auto" Visibility="Collapsed">
+                    <StackPanel Margin="20">
+                        <Border Background="#FFF9FAFB" CornerRadius="8,8,0,0" BorderBrush="#FFE5E7EB" BorderThickness="1,1,1,0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="80"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Imię"     Style="{StaticResource HeaderText}"/>
+                                <TextBlock Grid.Column="1" Text="Nazwisko" Style="{StaticResource HeaderText}"/>
+                                <TextBlock Grid.Column="2" Text="Email"    Style="{StaticResource HeaderText}"/>
+                                <TextBlock Grid.Column="3" Text="Telefon"  Style="{StaticResource HeaderText}"/>
+                                <TextBlock Grid.Column="4" Text="Saldo"    Style="{StaticResource HeaderText}"/>
+                                <TextBlock Grid.Column="5" Text="Akcje"    Style="{StaticResource HeaderText}" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+
+                        <ItemsControl x:Name="ListaUzytkownikow">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="#FFE5E7EB" BorderThickness="1,0,1,1">
+                                        <Grid Background="White">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="80"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{Binding Imie}"    Style="{StaticResource CellText}"/>
+                                            <TextBlock Grid.Column="1" Text="{Binding Nazwisko}" Style="{StaticResource CellText}"/>
+                                            <TextBlock Grid.Column="2" Text="{Binding Email}"   Style="{StaticResource CellText}"/>
+                                            <TextBlock Grid.Column="3" Text="{Binding Telefon}" Style="{StaticResource CellText}"/>
+                                            <TextBlock Grid.Column="4" Style="{StaticResource CellText}">
+                                                <Run Text="{Binding Saldo}"/>
+                                                <Run Text=" zł"/>
+                                            </TextBlock>
+                                            <Button Grid.Column="5" Content="X" Foreground="#FFE53E3E"
+                                                    Background="Transparent" BorderThickness="0"
+                                                    FontSize="16" Cursor="Hand" HorizontalAlignment="Center"
+                                                    Tag="{Binding IdUzytkownik}" Click="UsunUzytkownika_Click"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </ScrollViewer>
+
+            </Grid>
+        </Border>
     </Grid>
 </Window>

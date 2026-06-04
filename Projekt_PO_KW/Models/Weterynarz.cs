@@ -13,6 +13,6 @@ namespace Projekt_PO_KW.Models
         public string Specjalizacja { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Haslo { get; set; } = string.Empty;
-        public string Imie_Nazwisko => $"{Imie} {Nazwisko}";
+        public string ImieNazwisko => $"{Imie} {Nazwisko}";
     }
 }

@@ -1,0 +1,59 @@
+﻿<Window x:Class="Projekt_PO_KW.Views.DodajWeterynarzaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Dodaj weterynarza" Height="595" Width="400" ResizeMode="NoResize">
+    <Grid Background="White" Margin="0,0,0,0">
+        <Border Margin="20">
+            <StackPanel Margin="20,15">
+                <TextBlock Text="Dodaj weterynarza" FontSize="16" FontWeight="Bold" Margin="0,0,0,20"/>
+
+                <TextBlock Text="Imię" FontWeight="Bold" Margin="0,0,0,5"/>
+                <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1"
+                        Background="#FFF9FAFB" Height="32" Margin="0,0,0,12">
+                    <TextBox x:Name="PoleImie" BorderThickness="0" Background="Transparent" Padding="8,4"/>
+                </Border>
+
+                <TextBlock Text="Nazwisko" FontWeight="Bold" Margin="0,0,0,5"/>
+                <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1"
+                        Background="#FFF9FAFB" Height="32" Margin="0,0,0,12">
+                    <TextBox x:Name="PoleNazwisko" BorderThickness="0" Background="Transparent" Padding="8,4"/>
+                </Border>
+
+                <TextBlock Text="Specjalizacja" FontWeight="Bold" Margin="0,0,0,5"/>
+                <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1"
+                        Background="#FFF9FAFB" Height="32" Margin="0,0,0,12">
+                    <TextBox x:Name="PoleSpecjalizacja" BorderThickness="0" Background="Transparent" Padding="8,4"/>
+                </Border>
+
+                <TextBlock Text="Email" FontWeight="Bold" Margin="0,0,0,5"/>
+                <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1"
+                        Background="#FFF9FAFB" Height="32" Margin="0,0,0,12">
+                    <TextBox x:Name="PoleEmail" BorderThickness="0" Background="Transparent" Padding="8,4"/>
+                </Border>
+
+                <TextBlock Text="Telefon" FontWeight="Bold" Margin="0,0,0,5"/>
+                <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1"
+                        Background="#FFF9FAFB" Height="32" Margin="0,0,0,12">
+                    <TextBox x:Name="PoleTelefon" BorderThickness="0" Background="Transparent" Padding="8,4"/>
+                </Border>
+
+                <TextBlock Text="Hasło" FontWeight="Bold" Margin="0,0,0,5"/>
+                <Border CornerRadius="8" BorderBrush="#FFE5E7EB" BorderThickness="1"
+                        Background="#FFF9FAFB" Height="32" Margin="0,0,0,20">
+                    <PasswordBox x:Name="PoleHaslo" BorderThickness="0" Background="Transparent" Padding="8,4"/>
+                </Border>
+
+                <Button Content="Dodaj" Height="36" Click="Dodaj_Click"
+                        Background="#FFFB7185" Foreground="White" BorderThickness="0" FontWeight="Bold">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="8" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
