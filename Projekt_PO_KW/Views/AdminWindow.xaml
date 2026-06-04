@@ -73,7 +73,7 @@
 
         <Border Grid.Row="0" Background="White">
             <Grid>
-                <Label Content="Klinika Weterynaryjna -- Panel Admina"
+                <Label Content="Klinika Weterynaryjna - Panel Admina"
                        HorizontalAlignment="Left" VerticalAlignment="Center"
                        Margin="20,0,0,0" Foreground="#FFFB7185" FontSize="18" FontWeight="Bold"/>
                 <Label x:Name="EtykietaAdmin" Content=""
