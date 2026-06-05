@@ -120,12 +120,12 @@ namespace Projekt_PO_KW.Repositories
         {
             var lista = new List<Uzytkownik>();
 
-            using var conn = Database.GetConnection();
-            conn.Open();
+            using var Conn = Database.GetConnection();
+            Conn.Open();
 
-            var cmd = new SqlCommand(
-                "SELECT * FROM Uzytkownik WHERE rola = 'Uzytkownik' ORDER BY nazwisko", conn);
-            using var reader = cmd.ExecuteReader();
+            var command = new SqlCommand(
+                "SELECT * FROM Uzytkownik WHERE rola = 'Uzytkownik' ORDER BY nazwisko", Conn);
+            using var reader = command.ExecuteReader();
 
             while (reader.Read())
             {

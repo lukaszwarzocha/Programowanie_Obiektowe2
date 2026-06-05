@@ -39,15 +39,15 @@ namespace Projekt_PO_KW.Views
             try
             {
                 var rep = new UzytkownikRep();
-                var uzytkownik = rep.GetUser(email, haslo);
-
-                Helpers.SessionHelper.ZalogowanyUzytkownik = uzytkownik; 
+                var uzytkownik = rep.GetUser(email, haslo);     
 
                 if (uzytkownik == null)
                 {
                     System.Windows.MessageBox.Show("Nieprawidłowy login lub hasło!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
+
+                Helpers.SessionHelper.ZalogowanyUzytkownik = uzytkownik;
 
                 if (uzytkownik.Rola == "Administrator")
                 {
