@@ -58,7 +58,15 @@ namespace Projekt_PO_KW.Repositories
             using var Conn = Database.GetConnection();
             Conn.Open();
 
-            var command = new SqlCommand("DELETE FROM PUPIL WHERE id_pupil = @id", Conn);
+            var commandRez = new SqlCommand("DELETE FROM Rezerwacja WHERE id_pupil = @id", Conn);
+            commandRez.Parameters.AddWithValue("@id", idPupil);
+            commandRez.ExecuteNonQuery();
+
+            var commandUP = new SqlCommand("DELETE FROM Uzytkownik_Pupil WHERE id_pupil = @id", Conn);
+            commandUP.Parameters.AddWithValue("@id", idPupil);
+            commandUP.ExecuteNonQuery();
+
+            var command = new SqlCommand("DELETE FROM Pupil WHERE id_pupil = @id", Conn);
             command.Parameters.AddWithValue("@id", idPupil);
             command.ExecuteNonQuery();
         }
