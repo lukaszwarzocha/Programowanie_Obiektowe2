@@ -1,0 +1,200 @@
+\documentclass[oneside]{urdpl}
+\UseRawInputEncoding
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{multirow} 
+\usepackage{tabularx} 
+\usepackage{amssymb} 
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage[flushleft]{threeparttable}
+\usepackage[normalem]{ulem}
+\usepackage{lineno}
+\usepackage{epstopdf}
+
+\usepackage{csquotes}
+
+\usepackage{courier}
+
+\usepackage{listings}
+\lstloadlanguages{TeX}
+\renewcommand{\lstlistlistingname}{Spis listingów}
+\renewcommand{\lstlistingname}{Listing}
+
+
+\lstset{
+	literate={ą}{{\k{a}}}1
+           {ć}{{\'c}}1
+           {ę}{{\k{e}}}1
+           {ó}{{\'o}}1
+           {ń}{{\'n}}1
+           {ł}{{\l{}}}1
+           {ś}{{\'s}}1
+           {ź}{{\'z}}1
+           {ż}{{\.z}}1
+           {Ą}{{\k{A}}}1
+           {Ć}{{\'C}}1
+           {Ę}{{\k{E}}}1
+           {Ó}{{\'O}}1
+           {Ń}{{\'N}}1
+           {Ł}{{\L{}}}1
+           {Ś}{{\'S}}1
+           {Ź}{{\'Z}}1
+           {Ż}{{\.Z}}1,
+	basicstyle=\footnotesize\ttfamily,
+}
+
+\lstdefinestyle{javaStyle}{
+    language=Java,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{green},
+    numberstyle=\tiny\color{gray},
+    numbers=left,
+    numbersep=5pt,                    
+    stepnumber=1,
+    showspaces=false,                  
+    tabsize=2,
+    showstringspaces=false,
+    breaklines=true,
+    breakatwhitespace=false,           
+    showtabs=false,                    
+    keepspaces=true                    
+}
+
+\definecolor{stringcolor}{RGB}{163,21,21}  
+\definecolor{typecolor}{RGB}{43, 145, 176}  
+
+\lstdefinestyle{csStyle}{
+    language=[Sharp]C,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    stringstyle=\color{stringcolor},
+    commentstyle=\color{green!50!black}\itshape,
+    morekeywords={class, public, private, protected, static, void, string, int, new}, 
+    emphstyle=\color{typecolor}\bfseries, 
+    numbers=left,
+    numbersep=5pt,                       
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    breaklines=true,
+    showspaces=false,                    
+    tabsize=2,
+    showstringspaces=false,
+    breakatwhitespace=false,            
+    showtabs=false,                     
+    keepspaces=true                     
+}
+
+\definecolor{lightgray}{rgb}{0.9,0.9,0.9}
+    \definecolor{green}{rgb}{0,0.6,0}
+    \definecolor{gray}{rgb}{0.5,0.5,0.5}
+
+\AtBeginDocument{
+	\renewcommand{\tablename}{Tabela}
+	\renewcommand{\figurename}{Rys.}   
+    \newcommand{\listingname}{Listing}
+}
+
+\newcolumntype{C}[1]{>{\hsize=#1\hsize\centering\arraybackslash}X}
+
+\author{Łukasz Warzocha}
+\shortauthor{Ł. Warzocha}
+\noAlbum{134983}
+
+\titlePL{System zarządzania kliniką weterynaryjną}
+\titleEN{Management System for Veterinary Clinic}
+
+\shorttitlePL{System zarządzania kliniką weterynaryjną}
+\shorttitleEN{Management System for Veterinary Clinic}
+
+\thesistype{Praca projektowa}
+
+
+\thesisDone{Praca wykonana pod kierunkiem}
+\supervisor{mgr inż. Ewa Żesławska}
+%\supervisor{Jan Nowak PhD}
+
+\degreeprogramme{Informatyka}
+%\degreeprogramme{Computer Science}
+
+\date{2026}
+
+\department{Instytut Informatyki}
+%\department{Institute of Computer Science}
+
+\faculty{Wydział Nauk Ścisłych i Technicznych}
+%\faculty{Faculty of Science and Technology}
+
+\setlength{\cftsecnumwidth}{10mm}
+
+\setcounter{secnumdepth}{4}
+\brokenpenalty=10000\relax
+
+\begin{document}
+
+\titlepages
+
+\fancypagestyle{plain}
+{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\clearpage
+\include{chapters/chapter001}
+\include{chapters/chapter002}
+\include{chapters/chapter003}
+\include{chapters/chapter004}
+\include{chapters/chapter005}
+\include{chapters/chapter006}
+\include{chapters/chapter007}
+
+
+\renewcommand{\emph}[1]{\textit{#1}}
+\addcontentsline{toc}{section}{\textbf{Bibliografia}}
+\bibliographystyle{plain}
+\nocite{*}
+\bibliography{bibliografia}
+
+% Przywrócenie działania `ulem`
+\renewcommand{\emph}[1]{\uline{#1}}
+
+\clearpage
+\addcontentsline{toc}{section}{\textbf{Spis rysunków}}
+\listoffigures
+\clearpage
+
+\addcontentsline{toc}{section}{\textbf{Spis tabel}}
+\listoftables
+\clearpage
+\clearpage
+
+\addcontentsline{toc}{section}{\textbf{Spis listingów}}
+\lstlistoflistings
+\clearpage
+
+\addcontentsline{toc}{section}{\textbf{Oświadczenie studenta o samodzielności pracy}}
+
+\begin{center}
+\includegraphics[width=\textwidth]{oswiadczenie.pdf}
+\end{center}
+
+\clearpage
+\end{document}

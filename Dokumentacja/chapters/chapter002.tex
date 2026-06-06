@@ -1,0 +1,60 @@
+\chapter{Opis założeń projektu}
+
+\section{Cel projektu}
+
+Celem projektu jest stworzenie aplikacji desktopowej do zarządzania 
+kliniką weterynaryjną. System będzie posiadał bezpieczny mechanizm 
+logowania i rejestracji z wykorzystaniem bazy danych, a także autoryzację 
+użytkowników na podstawie przypisanej do konta roli, takiej jak administrator 
+lub użytkownik. Po zalogowaniu aplikacja automatycznie wyświetli odpowiedni 
+interfejs, w zależności od roli zalogowanego użytkownika. Administrator 
+będzie miał możliwość dodawania i usuwania weterynarzy oraz zabiegów, a 
+także przeglądania listy wszystkich zarejestrowanych użytkowników oraz 
+złożonych rezerwacji. Użytkownik natomiast będzie mógł doładowywać środki 
+na swoje konto, rejestrować swoich pupili, przeglądać historię wizyt oraz 
+rezerwować zabiegi u wybranych weterynarzy z uwzględnieniem ich kalendarza 
+dostępności.
+
+\section{Realizacja projektu}
+
+Projekt został zrealizowany z wykorzystaniem języka C\# oraz 
+technologii WPF (Windows Presentation Foundation). Do przechowywania 
+danych użyto relacyjnej bazy danych Microsoft SQL Server 2025, wraz 
+z biblioteką ADO.NET i sterownikiem 
+Microsoft.Data.SqlClient, która obsługuje informacje o użytkownikach, 
+pupilach, weterynarzach, zabiegach oraz rezerwacjach. Aplikacja została 
+opracowana w środowisku Visual Studio 2026 Insiders.
+
+\section{Wymagania funkcjonalne oraz niefunkcjonalne}
+
+\textbf{Wymagania funkcjonalne:}
+\begin{enumerate}
+\item \textbf{Logowanie i rejestracja użytkowników} - aplikacja umożliwia rejestrację nowych użytkowników poprzez formularz, w którym należy podać imię, nazwisko, adres e-mail, numer telefonu, opcjonalny adres zamieszkania oraz hasło. Podczas logowania użytkownik wprowadza swój adres e-mail oraz hasło w celu uwierzytelnienia.
+
+\item \textbf{Panel użytkownika}:
+\begin{enumerate}
+\item Dodawanie środków do konta - użytkownik może doładować saldo swojego konta, aby móc opłacać rezerwowane zabiegi.
+\item Zarządzanie pupilami - użytkownik może dodawać swoich pupili (psy i koty), podając imię, gatunek, rasę, wiek oraz płeć. Może również edytować wiek pupila lub usunąć go z listy.
+\item Rezerwacja zabiegu - użytkownik wybiera pupila, następnie zabieg, weterynarza wykonującego dany zabieg, a na końcu wolny termin z kalendarza dostępności wybranego weterynarza. System automatycznie sprawdza dostępność terminów oraz weryfikuje, czy saldo użytkownika jest wystarczające na pokrycie kosztu zabiegu.
+\item Przeglądanie zabiegów - użytkownik ma dostęp do historii swoich rezerwacji wraz z informacjami o dacie, godzinie, weterynarzu, zabiegu oraz aktualnym statusie wizyty. Użytkownik może anulować zarezerwowany zabieg.
+\item Zarządzanie kontem - użytkownik może edytować swoje dane osobowe oraz zmieniać hasło.
+\end{enumerate}
+
+\item \textbf{Panel administratora:}
+\begin{enumerate}
+\item Zarządzanie użytkownikami - administrator ma dostęp do listy wszystkich zarejestrowanych użytkowników wraz z ich danymi i saldem konta. Może usunąć użytkownika wraz z jego pupilami i rezerwacjami.
+\item Zarządzanie rezerwacjami - administrator może przeglądać listę wszystkich złożonych rezerwacji z możliwością filtrowania po dacie, weterynarzu oraz statusie. Administrator może zmieniać status rezerwacji na: Zarezerwowany, Zrealizowany lub Anulowany.
+\item Zarządzanie weterynarzami - administrator może dodawać nowych weterynarzy, podając imię, nazwisko, specjalizację, email, telefon, hasło oraz godziny pracy w poszczególnych dniach tygodnia. Może również przypisywać zabiegi do weterynarza oraz usuwać weterynarzy z systemu.
+\item Zarządzanie zabiegami - administrator może dodawać nowe zabiegi do oferty kliniki, wprowadzając nazwę, czas trwania oraz cenę. Może także usuwać dostępne zabiegi.
+\end{enumerate}
+\item Opcja wylogowania - zarówno panel użytkownika, jak i panel administratora, posiadają opcję wylogowania, która przenosi z powrotem do ekranu logowania.
+\end{enumerate}
+\vspace{5pt}
+
+\textbf{Wymagania niefunkcjonalne:}
+\begin{enumerate}
+\item Bezpieczeństwo - dostęp do poszczególnych funkcji ograniczony zgodnie z rolą: użytkownik, administrator. Walidacja danych wejściowych na poziomie aplikacji zapobiega wprowadzaniu nieprawidłowych danych.
+\item Skalowalność - struktura bazy danych oraz logika aplikacji umożliwiają rozszerzenie systemu o dodatkowe funkcjonalności, np. obsługę kolejnych gatunków zwierząt, powiadomienia o wizytach lub wystawianie faktur.
+\item Responsywność - czas odpowiedzi programu na operacje użytkownika nie powinien przekraczać 1 sekundy.
+\item Intuicyjność - program łatwy do użytku dzięki przejrzystej oprawie graficznej oraz podziałowi na logiczne sekcje nawigacyjne.
+\end{enumerate}

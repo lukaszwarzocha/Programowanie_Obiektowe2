@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{ADONETMicrosoft}
+Microsoft.
+\newblock Ado.net documentation, 2024.
+\newblock Accessed: 2026-05-05.
+
+\bibitem{CSharpMicrosoft}
+Microsoft.
+\newblock C\# documentation, 2024.
+\newblock Accessed: 2026-05-04.
+
+\bibitem{MSSSMSInstall}
+Microsoft.
+\newblock Install sql server management studio (ssms), 2024.
+\newblock Accessed: 2026-05-02.
+
+\bibitem{SqlClientMicrosoft}
+Microsoft.
+\newblock Microsoft.data.sqlclient - microsoft learn, 2024.
+\newblock Accessed: 2026-05-03.
+
+\bibitem{XAMLMicrosoft}
+Microsoft.
+\newblock Xaml overview (wpf .net), 2024.
+\newblock Accessed: 2026-05-04.
+
+\end{thebibliography}
