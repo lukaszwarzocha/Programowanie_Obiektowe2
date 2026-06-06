@@ -1,6 +1,6 @@
-PWD c:\Users\Admin\Desktop\ProjectLatex
+PWD c:\Users\Admin\Desktop\Dokumentacja
 INPUT C:\Users\Admin\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\Admin\Desktop\ProjectLatex\praca.tex
+INPUT c:\Users\Admin\Desktop\Dokumentacja\praca.tex
 OUTPUT praca.log
 INPUT .\urdpl.cls
 INPUT urdpl.cls
@@ -330,6 +330,9 @@ OUTPUT chapters\chapter002.aux
 INPUT .\chapters\chapter002.tex
 INPUT .\chapters\chapter002.tex
 INPUT chapters\chapter002.tex
+INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8t.tfm
+INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmri8t.vf
+INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8r.tfm
 INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmro8t.tfm
 INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmro8t.tfm
 INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8t.tfm
@@ -347,7 +350,8 @@ INPUT .\chapters\chapter003.tex
 INPUT .\chapters\chapter003.tex
 INPUT chapters\chapter003.tex
 INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8t.tfm
-INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8t.tfm
+INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb8t.vf
+INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
 INPUT .\src\DBConnection.cs
 INPUT .\src\DBConnection.cs
 INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8t.tfm
@@ -371,10 +375,6 @@ INPUT .\figures\fig_001-eps-converted-to.pdf
 INPUT .\figures\fig_001-eps-converted-to.pdf
 INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb8t.vf
 INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
-INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmri8t.vf
-INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8r.tfm
-INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb8t.vf
-INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
 INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\courier\pcrr8t.vf
 INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8r.tfm
 INPUT .\figures\fig_002.eps
@@ -389,6 +389,10 @@ INPUT .\figures\fig_002-eps-converted-to.pdf
 INPUT .\figures\fig_002-eps-converted-to.pdf
 INPUT .\figures\fig_002-eps-converted-to.pdf
 INPUT .\figures\fig_002-eps-converted-to.pdf
+INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
+INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
+INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
+INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8c.tfm
 INPUT .\figures\fig_003.eps
 INPUT .\figures\fig_003.eps
 INPUT .\figures\fig_003.eps
@@ -401,6 +405,7 @@ INPUT .\figures\fig_003-eps-converted-to.pdf
 INPUT .\figures\fig_003-eps-converted-to.pdf
 INPUT .\figures\fig_003-eps-converted-to.pdf
 INPUT .\figures\fig_003-eps-converted-to.pdf
+INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8c.vf
 INPUT .\src\Task1.cs
 INPUT .\src\Task1.cs
 INPUT src\Task1.cs
@@ -434,11 +439,6 @@ INPUT src\Task10.cs
 INPUT .\src\Task11.cs
 INPUT .\src\Task11.cs
 INPUT src\Task11.cs
-INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
-INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
-INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
-INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8c.tfm
-INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8c.vf
 INPUT .\chapters\chapter004.tex
 INPUT .\chapters\chapter004.tex
 OUTPUT chapters\chapter004.aux
@@ -1172,6 +1172,8 @@ INPUT .\chapters\chapter007.aux
 INPUT chapters\chapter007.aux
 INPUT .\praca.out
 INPUT .\praca.out
+INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\type1\urw\courier\ucrr8a.pfb
 INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\type1\urw\courier\ucrr8a.pfb
 INPUT C:\Users\Admin\AppData\Local\Programs\MiKTeX\fonts\type1\urw\helvetic\uhvb8a.pfb

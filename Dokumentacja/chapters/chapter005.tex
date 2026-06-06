@@ -1,20 +1,6 @@
 \chapter{Prezentacja warstwy użytkowej projektu}
 
-\section{Dane do logowania}
-
-W celu zalogowania się na konto administratora należy wykorzystać następujące dane:
-\begin{itemize}
-\item Login: admin@example.com
-\item Hasło: haslo123
-\end{itemize}
-
-W celu zalogowania się na konto użytkownika można wykorzystać następujące dane:
-\begin{itemize}
-\item Login: jan@example.com
-\item Hasło: haslo1234
-\end{itemize}
-
-\section{Panel logowania}
+\section{Panel logowania oraz rejestracji}
 
 Panel logowania umożliwia użytkownikowi 
 uwierzytelnienie się w systemie. Formularz zawiera dwa pola: adres e-mail oraz hasło. Po 
@@ -37,7 +23,7 @@ komunikat błędu informujący o nieprawidłowym adresie e-mail lub haśle.
 \caption{Komunikat błędu przy nieprawidłowych danych logowania.\label{fig6}}
 \end{figure}
 
-\section{Panel rejestracji}
+\textbf{Panel rejestracji}
 
 Panel rejestracji umożliwia nowemu użytkownikowi założenie konta w systemie. Formularz zawiera pola: imię, 
 nazwisko, adres e-mail, numer telefonu, adres (pole opcjonalne), hasło oraz potwierdzenie hasła. 
@@ -542,6 +528,37 @@ wraz ze wszystkimi powiązanymi danymi, a lista użytkowników jest automatyczni
 \includegraphics[width=0.9\linewidth]{figures/Admin/fig_058.eps}
 \caption{Okno potwierdzenia usunięcia użytkownika.\label{fig58}}
 \end{figure}
+
+\section{Uruchomienie aplikacji}
+
+\begin{enumerate}
+\item Pobrać repozytorium projektu z GitHub: 
+\url{https://github.com/lukaszwarzocha/Programowanie_Obiektowe2.git}
+\item Otworzyć plik Projekt\_PO\_KW.sln w Visual Studio.
+\item Upewnić się że connection string w pliku Database.cs jest poprawny:
+\begin{lstlisting}
+Server=localhost;Database=klinika_weterynaryjna;
+Trusted_Connection=True;TrustServerCertificate=True;
+\end{lstlisting}
+\item Przywrócić pakiety NuGet. W tym celu kliknąć prawym przyciskiem myszy na rozwiązanie w Eksploratorze rozwiązań, a następnie wybrać 
+Menedżer pakietów NuGet $\rightarrow$ Przywróć pakiety NuGet.
+\item Zbudować rozwiązanie: Kompilacja $\rightarrow$ Kompiluj rozwiązanie lub skrótem klawiszowum Ctrl+B.
+\item Uruchomić aplikację klawiszem F5 lub przyciskiem Start.
+\end{enumerate}
+
+\textbf{Dane do logowania}
+
+W celu zalogowania się na konto administratora należy wykorzystać następujące dane:
+\begin{itemize}
+\item Login: admin@example.com
+\item Hasło: haslo123
+\end{itemize}
+
+W celu zalogowania się na konto użytkownika można wykorzystać następujące dane:
+\begin{itemize}
+\item Login: jan@example.com
+\item Hasło: haslo1234
+\end{itemize}
 
 
 

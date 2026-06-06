@@ -1,6 +1,47 @@
 \chapter{Opis struktury projektu}
-\section{Baza danych}
+\section{Technologie wykorzystane w projekcie}
 
+\textbf{Interfejs użytkownika}
+
+Do budowy interfejsu graficznego zastosowałem technologię WPF (Windows Presentation Foundation) wraz z językiem 
+znaczników XAML. WPF został wybrany ze względu na integrację z platformą .NET, bogaty zestaw wbudowanych 
+kontrolek oraz możliwość tworzenia nowoczesnych interfejsów bez konieczności stosowania zewnętrznych bibliotek 
+graficznych. XAML umożliwia deklaratywne definiowanie interfejsu w sposób czytelny i całkowicie oddzielony od 
+logiki aplikacji.
+
+\vspace{10pt}
+
+\textbf{Dostęp do danych}
+
+Do komunikacji z bazą danych wykorzystałem ADO.NET ze sterownikiem Microsoft.Data.SqlClient w wersji 7.0.1. ADO.NET 
+został wybrany ze względu na pełną kontrolę nad wykonywanymi zapytaniami SQL. 
+
+\vspace{10pt}
+
+\textbf{Baza danych}
+
+Jako system zarządzania bazą danych wybrałem Microsoft SQL Server 2025 ze względu na to, że używaliśmy go na labach. 
+SQL Server oferuje obsługę zaawansowanych typów danych wykorzystanych w projekcie, 
+takich jak TIME, DATE czy DECIMAL, a także zapewnia wydajne mechanizmy wymuszania integralności danych poprzez 
+klucze obce i ograniczenia CHECK.
+
+\vspace{10pt}
+
+\textbf{Język programowania i platforma}
+
+Aplikacja została napisana w języku C\# na platformie .NET 10.0. Platforma .NET 10.0 zapewnia 
+nowoczesne możliwości języka oraz wysoką wydajność.
+
+\vspace{10pt}
+
+\textbf{Narzędzia deweloperskie}
+
+Projekt był rozwijany przy użyciu Visual Studio 2026 Insiders, zintegrowanego środowiska programistycznego 
+firmy Microsoft, oferującego zaawansowane narzędzia do debugowania
+oraz zarządzania pakietami NuGet. Do zarządzania wersjami kodu użyłem systemu Git z repozytorium na 
+platformie GitHub.
+
+\section{Baza danych}
 \subsection{Konfiguracja bazy danych (SQL Server)}
 
 W projekcie wykorzystano relacyjną bazę danych Microsoft SQL Server. 
@@ -46,7 +87,7 @@ Uzytkownik, Pupil, Weterynarz, Zabieg,
 Rezerwacja, Dostepnosc oraz tabel łączących 
 Uzytkownik\_Pupil i Weterynarz\_Zabieg. 
 Tabela Uzytkownik oraz Pupil połączone są relacją 
-wiele do wielu za pomocą tabeli łączącej Uzytkownik\_Pupil 
+wiele do wielu za pomocą tabeli łączącej Uzytkownik\_Pupil, 
 tzn. jeden użytkownik może posiadać wiele pupili i jeden pupil może 
 mieć wielu właścicieli. Tabela Weterynarz oraz Zabieg
 połączone są relacją wiele do wielu za pomocą tabeli 
@@ -64,6 +105,31 @@ przechowując datę, godzinę oraz aktualny status wizyty.
 \includegraphics[width=1.15\linewidth]{figures/fig_002.eps}
 \caption{Diagram ERD projektowanej aplikacji.\label{fig2}}
 \end{table}
+
+\subsection{Normalizacja bazy oraz Integralność danych}
+
+\textbf{Normalizacja bazy danych}
+
+Baza danych została zaprojektowana zgodnie z trzecią postacią normalną (3NF). 
+Każda tabela zawiera tylko atrybuty bezpośrednio zależne od klucza głównego, eliminując redundancję 
+danych. Relacje wiele do wielu (Uzytkownik-Pupil oraz WeterynarzZabieg) zostały 
+rozwiązane przy użyciu dedykowanych tabel łączących.
+
+\textbf{Integralność danych}
+
+Integralność danych w bazie zapewniana jest przez następujące mechanizmy:
+\begin{itemize}
+\item \textbf{Klucze główne} - każda tabela posiada unikalny identyfikator typu INT IDENTITY, automatycznie 
+inkrementowany przez SQL Server,
+\item \textbf{Klucze obce} - relacje między tabelami są wymuszane przez ograniczenia FOREIGN KEY, uniemożliwiające 
+dodanie rekordów z nieistniejącymi odwołaniami,
+\item \textbf{Ograniczenia CHECK} - kolumny gatunek (Pies/Kot), plec (Samiec/Samica), rola (Uzytkownik/Administrator)
+oraz status (Zarezerwowany/Anulowany/Zrealizowany) posiadają ograniczenia dopuszczalnych wartości,
+\item \textbf{Unikalność} - kolumna email w tabeli Uzytkownik posiada ograniczenie UNIQUE, uniemożliwiające 
+rejestrację dwóch kont na ten sam adres e-mail,
+\item \textbf{Walidacja po stronie aplikacji} - dodatkowa weryfikacja danych wejściowych realizowana jest w
+kodzie C\# przed wykonaniem zapytań do bazy danych, co stanowi drugą warstwę ochrony przed nieprawidłowymi danymi.
+\end{itemize}
 
 \section{Struktura klas}
 
@@ -249,7 +315,7 @@ zakończenia już minęła, na status Zrealizowany. Dzięki temu system automaty
 
 \lstinputlisting[caption=Metoda aktualizacji statusów oraz metody związane z zabiegami wraz z metodami zapytań SQL, label=lista zabiegów]{src/Task11.cs}
 
-\section{Minimalne wymagania sprzętowe}
+\section{Wymagania sprzętowe i narzędzia}
 
 \begin{itemize}
 \item \textbf{Procesor:} minimum 2-rdzeniowy, 2.0 GHz lub szybszy.
@@ -262,7 +328,7 @@ zakończenia już minęła, na status Zrealizowany. Dzięki temu system automaty
 (instalowany przez NuGet).
 \end{itemize}
 
-\section{Narzędzia wykorzystane w projekcie}
+\textbf{Narzędzia wykorzystane w projekcie}
 
 \begin{itemize}
 \item \textbf{Visual Studio Insiders 2026} - środowisko programistyczne do tworzenia aplikacji w języku C\#,

@@ -3,34 +3,34 @@
 \contentsline {section}{\numberline {2.1}Cel projektu}{7}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Realizacja projektu}{7}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Wymagania funkcjonalne oraz niefunkcjonalne}{7}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Opis struktury projektu}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Baza danych}{9}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Konfiguracja bazy danych (SQL Server)}{9}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Połączenie z bazą danych w Visual Studio}{9}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Konfiguracja środowiska Visual Studio}{9}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Struktura klas}{11}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Najważniejsze metody}{13}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Logowanie}{13}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Zmiana hasła - panel użytkownika}{14}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Zmiana panelu wyświetlania - panel użytkownika}{16}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Wpłata środków - panel użytkownika}{17}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}Rezerwacja zabiegu - panel użytkownika}{18}{subsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.3.6}Lista użytkowników - panel administratora}{24}{subsection.3.3.6}%
-\contentsline {subsection}{\numberline {3.3.7}Dodawanie weterynarza - panel administratora}{27}{subsection.3.3.7}%
-\contentsline {subsection}{\numberline {3.3.8}Dodawanie zabiegu - panel administratora}{29}{subsection.3.3.8}%
-\contentsline {subsection}{\numberline {3.3.9}Operacje na zabiegach - panel administratora}{31}{subsection.3.3.9}%
-\contentsline {section}{\numberline {3.4}Minimalne wymagania sprzętowe}{34}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Narzędzia wykorzystane w projekcie}{34}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Harmonogram realizacji projektu}{35}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Prezentacja warstwy użytkowej projektu}{36}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Dane do logowania}{36}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Panel logowania}{36}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Panel rejestracji}{37}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Panel użytkownika}{39}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Panel administratora}{56}{section.5.5}%
-\contentsline {chapter}{\numberline {6}Podsumowanie}{67}{chapter.6}%
-\contentsline {section}{\textbf {Bibliografia}}{69}{section*.59}%
-\contentsline {section}{\textbf {Spis rysunków}}{70}{chapter*.60}%
-\contentsline {section}{\textbf {Spis tabel}}{72}{chapter*.60}%
-\contentsline {section}{\textbf {Spis listingów}}{73}{chapter*.60}%
-\contentsline {section}{\textbf {Oświadczenie studenta o samodzielności pracy}}{74}{chapter*.61}%
+\contentsline {chapter}{\numberline {3}Opis struktury projektu}{10}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Technologie wykorzystane w projekcie}{10}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Baza danych}{10}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Konfiguracja bazy danych (SQL Server)}{10}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Połączenie z bazą danych w Visual Studio}{11}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Konfiguracja środowiska Visual Studio}{11}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Normalizacja bazy oraz Integralność danych}{13}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}Struktura klas}{13}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Najważniejsze metody}{16}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Logowanie}{16}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Zmiana hasła - panel użytkownika}{17}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Zmiana panelu wyświetlania - panel użytkownika}{19}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Wpłata środków - panel użytkownika}{20}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Rezerwacja zabiegu - panel użytkownika}{21}{subsection.3.4.5}%
+\contentsline {subsection}{\numberline {3.4.6}Lista użytkowników - panel administratora}{27}{subsection.3.4.6}%
+\contentsline {subsection}{\numberline {3.4.7}Dodawanie weterynarza - panel administratora}{30}{subsection.3.4.7}%
+\contentsline {subsection}{\numberline {3.4.8}Dodawanie zabiegu - panel administratora}{32}{subsection.3.4.8}%
+\contentsline {subsection}{\numberline {3.4.9}Operacje na zabiegach - panel administratora}{34}{subsection.3.4.9}%
+\contentsline {section}{\numberline {3.5}Wymagania sprzętowe i narzędzia}{37}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Harmonogram realizacji projektu}{38}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Prezentacja warstwy użytkowej projektu}{39}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Panel logowania oraz rejestracji}{39}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Panel użytkownika}{42}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Panel administratora}{59}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Uruchomienie aplikacji}{69}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Podsumowanie}{71}{chapter.6}%
+\contentsline {section}{\textbf {Bibliografia}}{73}{section*.59}%
+\contentsline {section}{\textbf {Spis rysunków}}{74}{chapter*.60}%
+\contentsline {section}{\textbf {Spis tabel}}{76}{chapter*.60}%
+\contentsline {section}{\textbf {Spis listingów}}{77}{chapter*.60}%
+\contentsline {section}{\textbf {Oświadczenie studenta o samodzielności pracy}}{78}{chapter*.61}%

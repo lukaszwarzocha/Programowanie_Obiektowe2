@@ -1,63 +1,63 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Sterownik Microsoft.Data.SqlClient (Menadżer pakietów NuGet).}}{10}{figure.caption.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Struktura klas w projekcie.}}{12}{figure.caption.3}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Sterownik Microsoft.Data.SqlClient (Menadżer pakietów NuGet).}}{12}{figure.caption.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Struktura klas w projekcie.}}{15}{figure.caption.3}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagram Gantta.}}{35}{figure.caption.4}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagram Gantta.}}{38}{figure.caption.4}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Widok panelu logowania.}}{36}{figure.caption.5}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Komunikat błędu przy nieprawidłowych danych logowania.}}{37}{figure.caption.6}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Widok panelu rejestracji.}}{37}{figure.caption.7}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Komunikat błędu przy niewypełnionych polach formularza.}}{38}{figure.caption.8}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Komunikat błędu przy nieprawidłowym formacie numeru telefonu.}}{38}{figure.caption.9}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Komunikat błędu przy niezgodności haseł.}}{39}{figure.caption.10}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Komunikat błędu przy haśle krótszym niż 6 znaków.}}{39}{figure.caption.11}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Widok zakładki Moje konto.}}{40}{figure.caption.12}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Komunikat informacyjny przy braku zmian w danych.}}{40}{figure.caption.13}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Komunikat błędu przy niewypełnionych polach zmiany hasła.}}{41}{figure.caption.14}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Komunikat błędu przy nieprawidłowym obecnym haśle.}}{41}{figure.caption.15}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Komunikat błędu przy niezgodności nowych haseł.}}{42}{figure.caption.16}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Komunikat błędu przy haśle krótszym niż 6 znaków.}}{42}{figure.caption.17}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Widok zakładki Moje pupile.}}{43}{figure.caption.18}%
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Okno dialogowe edycji wieku pupila.}}{43}{figure.caption.19}%
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Komunikat błędu przy nieprawidłowym wieku pupila.}}{44}{figure.caption.20}%
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Okno potwierdzenia usunięcia pupila.}}{44}{figure.caption.21}%
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Widok zakładki Moje wizyty.}}{45}{figure.caption.22}%
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Okno potwierdzenia anulowania wizyty.}}{45}{figure.caption.23}%
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Widok okna Dodaj pupila.}}{46}{figure.caption.24}%
-\contentsline {figure}{\numberline {5.21}{\ignorespaces Komunikat błędu przy niewypełnionych polach formularza.}}{47}{figure.caption.25}%
-\contentsline {figure}{\numberline {5.22}{\ignorespaces Komunikat potwierdzający pomyślne dodanie pupila.}}{48}{figure.caption.26}%
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Krok 1 - widok wyboru pupila i zabiegu.}}{49}{figure.caption.27}%
-\contentsline {figure}{\numberline {5.24}{\ignorespaces Komunikat błędu przy braku wybranego pupila.}}{49}{figure.caption.28}%
-\contentsline {figure}{\numberline {5.25}{\ignorespaces Komunikat błędu przy braku wybranego zabiegu.}}{50}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.26}{\ignorespaces Krok 2 - widok wyboru weterynarza.}}{50}{figure.caption.30}%
-\contentsline {figure}{\numberline {5.27}{\ignorespaces Komunikat błędu przy braku wybranego weterynarza.}}{51}{figure.caption.31}%
-\contentsline {figure}{\numberline {5.28}{\ignorespaces Krok 3 - widok kalendarza dostępności weterynarza.}}{52}{figure.caption.32}%
-\contentsline {figure}{\numberline {5.29}{\ignorespaces Komunikat błędu przy braku wybranego terminu.}}{52}{figure.caption.33}%
-\contentsline {figure}{\numberline {5.30}{\ignorespaces Komunikat potwierdzający pomyślne zapisanie rezerwacji.}}{53}{figure.caption.34}%
-\contentsline {figure}{\numberline {5.31}{\ignorespaces Widok zakładki Dodaj środki.}}{54}{figure.caption.35}%
-\contentsline {figure}{\numberline {5.32}{\ignorespaces Komunikat błędu przy pustym polu kwoty.}}{54}{figure.caption.36}%
-\contentsline {figure}{\numberline {5.33}{\ignorespaces Komunikat błędu przy podaniu nieprawidłowej kwoty.}}{55}{figure.caption.37}%
-\contentsline {figure}{\numberline {5.34}{\ignorespaces Okno potwierdzenia wpłaty środków.}}{55}{figure.caption.38}%
-\contentsline {figure}{\numberline {5.35}{\ignorespaces Komunikat potwierdzający pomyślną wpłatę środków.}}{56}{figure.caption.39}%
-\contentsline {figure}{\numberline {5.36}{\ignorespaces Widok zakładki Weterynarze w panelu administratora.}}{56}{figure.caption.40}%
-\contentsline {figure}{\numberline {5.37}{\ignorespaces Okno formularza dodawania weterynarza.}}{57}{figure.caption.41}%
-\contentsline {figure}{\numberline {5.38}{\ignorespaces Komunikat błędu przy niewypełnionych wymaganych polach.}}{58}{figure.caption.42}%
-\contentsline {figure}{\numberline {5.39}{\ignorespaces Okno zarządzania zabiegami weterynarza.}}{59}{figure.caption.43}%
-\contentsline {figure}{\numberline {5.40}{\ignorespaces Komunikat potwierdzający aktualizację zabiegów weterynarza.}}{59}{figure.caption.44}%
-\contentsline {figure}{\numberline {5.41}{\ignorespaces Okno potwierdzenia usunięcia weterynarza.}}{60}{figure.caption.45}%
-\contentsline {figure}{\numberline {5.42}{\ignorespaces Widok zakładki Zabiegi w panelu administratora.}}{60}{figure.caption.46}%
-\contentsline {figure}{\numberline {5.43}{\ignorespaces Okno formularza dodawania zabiegu.}}{61}{figure.caption.47}%
-\contentsline {figure}{\numberline {5.44}{\ignorespaces Komunikat błędu przy niewypełnionych polach formularza.}}{61}{figure.caption.48}%
-\contentsline {figure}{\numberline {5.45}{\ignorespaces Komunikat błędu przy nieprawidłowym czasie trwania zabiegu.}}{62}{figure.caption.49}%
-\contentsline {figure}{\numberline {5.46}{\ignorespaces Komunikat błędu przy nieprawidłowej cenie zabiegu.}}{62}{figure.caption.50}%
-\contentsline {figure}{\numberline {5.47}{\ignorespaces Komunikat potwierdzający pomyślne dodanie zabiegu.}}{63}{figure.caption.51}%
-\contentsline {figure}{\numberline {5.48}{\ignorespaces Okno potwierdzenia usunięcia zabiegu.}}{63}{figure.caption.52}%
-\contentsline {figure}{\numberline {5.49}{\ignorespaces Widok zakładki Rezerwacje w panelu administratora.}}{64}{figure.caption.53}%
-\contentsline {figure}{\numberline {5.50}{\ignorespaces Widok zakładki Rezerwacje po filtrowaniu po dacie.}}{64}{figure.caption.54}%
-\contentsline {figure}{\numberline {5.51}{\ignorespaces Widok zakładki Rezerwacje po filtrowaniu po weterynarzu.}}{65}{figure.caption.55}%
-\contentsline {figure}{\numberline {5.52}{\ignorespaces Widok zakładki Rezerwacje po filtrowaniu po weterynarzu i statusie.}}{65}{figure.caption.56}%
-\contentsline {figure}{\numberline {5.53}{\ignorespaces Widok zakładki Użytkownicy w panelu administratora.}}{66}{figure.caption.57}%
-\contentsline {figure}{\numberline {5.54}{\ignorespaces Okno potwierdzenia usunięcia użytkownika.}}{66}{figure.caption.58}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Widok panelu logowania.}}{39}{figure.caption.5}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Komunikat błędu przy nieprawidłowych danych logowania.}}{40}{figure.caption.6}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Widok panelu rejestracji.}}{40}{figure.caption.7}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Komunikat błędu przy niewypełnionych polach formularza.}}{41}{figure.caption.8}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Komunikat błędu przy nieprawidłowym formacie numeru telefonu.}}{41}{figure.caption.9}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Komunikat błędu przy niezgodności haseł.}}{42}{figure.caption.10}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Komunikat błędu przy haśle krótszym niż 6 znaków.}}{42}{figure.caption.11}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Widok zakładki Moje konto.}}{43}{figure.caption.12}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Komunikat informacyjny przy braku zmian w danych.}}{43}{figure.caption.13}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Komunikat błędu przy niewypełnionych polach zmiany hasła.}}{44}{figure.caption.14}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Komunikat błędu przy nieprawidłowym obecnym haśle.}}{44}{figure.caption.15}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Komunikat błędu przy niezgodności nowych haseł.}}{45}{figure.caption.16}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Komunikat błędu przy haśle krótszym niż 6 znaków.}}{45}{figure.caption.17}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Widok zakładki Moje pupile.}}{46}{figure.caption.18}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Okno dialogowe edycji wieku pupila.}}{46}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Komunikat błędu przy nieprawidłowym wieku pupila.}}{47}{figure.caption.20}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Okno potwierdzenia usunięcia pupila.}}{47}{figure.caption.21}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Widok zakładki Moje wizyty.}}{48}{figure.caption.22}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Okno potwierdzenia anulowania wizyty.}}{48}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Widok okna Dodaj pupila.}}{49}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Komunikat błędu przy niewypełnionych polach formularza.}}{50}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Komunikat potwierdzający pomyślne dodanie pupila.}}{51}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Krok 1 - widok wyboru pupila i zabiegu.}}{52}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Komunikat błędu przy braku wybranego pupila.}}{52}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Komunikat błędu przy braku wybranego zabiegu.}}{53}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Krok 2 - widok wyboru weterynarza.}}{53}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Komunikat błędu przy braku wybranego weterynarza.}}{54}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Krok 3 - widok kalendarza dostępności weterynarza.}}{55}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.29}{\ignorespaces Komunikat błędu przy braku wybranego terminu.}}{55}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Komunikat potwierdzający pomyślne zapisanie rezerwacji.}}{56}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.31}{\ignorespaces Widok zakładki Dodaj środki.}}{57}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.32}{\ignorespaces Komunikat błędu przy pustym polu kwoty.}}{57}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.33}{\ignorespaces Komunikat błędu przy podaniu nieprawidłowej kwoty.}}{58}{figure.caption.37}%
+\contentsline {figure}{\numberline {5.34}{\ignorespaces Okno potwierdzenia wpłaty środków.}}{58}{figure.caption.38}%
+\contentsline {figure}{\numberline {5.35}{\ignorespaces Komunikat potwierdzający pomyślną wpłatę środków.}}{59}{figure.caption.39}%
+\contentsline {figure}{\numberline {5.36}{\ignorespaces Widok zakładki Weterynarze w panelu administratora.}}{59}{figure.caption.40}%
+\contentsline {figure}{\numberline {5.37}{\ignorespaces Okno formularza dodawania weterynarza.}}{60}{figure.caption.41}%
+\contentsline {figure}{\numberline {5.38}{\ignorespaces Komunikat błędu przy niewypełnionych wymaganych polach.}}{61}{figure.caption.42}%
+\contentsline {figure}{\numberline {5.39}{\ignorespaces Okno zarządzania zabiegami weterynarza.}}{62}{figure.caption.43}%
+\contentsline {figure}{\numberline {5.40}{\ignorespaces Komunikat potwierdzający aktualizację zabiegów weterynarza.}}{62}{figure.caption.44}%
+\contentsline {figure}{\numberline {5.41}{\ignorespaces Okno potwierdzenia usunięcia weterynarza.}}{63}{figure.caption.45}%
+\contentsline {figure}{\numberline {5.42}{\ignorespaces Widok zakładki Zabiegi w panelu administratora.}}{63}{figure.caption.46}%
+\contentsline {figure}{\numberline {5.43}{\ignorespaces Okno formularza dodawania zabiegu.}}{64}{figure.caption.47}%
+\contentsline {figure}{\numberline {5.44}{\ignorespaces Komunikat błędu przy niewypełnionych polach formularza.}}{64}{figure.caption.48}%
+\contentsline {figure}{\numberline {5.45}{\ignorespaces Komunikat błędu przy nieprawidłowym czasie trwania zabiegu.}}{65}{figure.caption.49}%
+\contentsline {figure}{\numberline {5.46}{\ignorespaces Komunikat błędu przy nieprawidłowej cenie zabiegu.}}{65}{figure.caption.50}%
+\contentsline {figure}{\numberline {5.47}{\ignorespaces Komunikat potwierdzający pomyślne dodanie zabiegu.}}{66}{figure.caption.51}%
+\contentsline {figure}{\numberline {5.48}{\ignorespaces Okno potwierdzenia usunięcia zabiegu.}}{66}{figure.caption.52}%
+\contentsline {figure}{\numberline {5.49}{\ignorespaces Widok zakładki Rezerwacje w panelu administratora.}}{67}{figure.caption.53}%
+\contentsline {figure}{\numberline {5.50}{\ignorespaces Widok zakładki Rezerwacje po filtrowaniu po dacie.}}{67}{figure.caption.54}%
+\contentsline {figure}{\numberline {5.51}{\ignorespaces Widok zakładki Rezerwacje po filtrowaniu po weterynarzu.}}{68}{figure.caption.55}%
+\contentsline {figure}{\numberline {5.52}{\ignorespaces Widok zakładki Rezerwacje po filtrowaniu po weterynarzu i statusie.}}{68}{figure.caption.56}%
+\contentsline {figure}{\numberline {5.53}{\ignorespaces Widok zakładki Użytkownicy w panelu administratora.}}{69}{figure.caption.57}%
+\contentsline {figure}{\numberline {5.54}{\ignorespaces Okno potwierdzenia usunięcia użytkownika.}}{69}{figure.caption.58}%
 \addvspace {10\p@ }
