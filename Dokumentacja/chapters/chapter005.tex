@@ -532,9 +532,11 @@ wraz ze wszystkimi powiązanymi danymi, a lista użytkowników jest automatyczni
 \section{Uruchomienie aplikacji}
 
 \begin{enumerate}
-\item Pobrać repozytorium projektu z GitHub: 
+\item Sklonować/Pobrać repozytorium projektu z GitHub: 
 \url{https://github.com/lukaszwarzocha/Programowanie_Obiektowe2.git}
-\item Otworzyć plik Projekt\_PO\_KW.sln w Visual Studio.
+\item Otworzyć folder Projekt\_PO\_KW w Visual Studio Insiders.
+\item Utworzyć bazę danych SQL Server o nazwie "klinika\_weterynaryjna" i zaimportować do niej strukturę 
+oraz dane z pliku schema.sql znajdującego się w katalogu Dokumentacja.
 \item Upewnić się że connection string w pliku Database.cs jest poprawny:
 \begin{lstlisting}
 Server=localhost;Database=klinika_weterynaryjna;
